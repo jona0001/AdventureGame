@@ -6,12 +6,20 @@ public class Room {
     private Room east;
     private Room west;
 
-    public void setNorth(Room north){
+
+    public Room(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
+
+    public void setNorth (Room north){
         this.north = north;
     }
     public void setSouth(Room south){
         this.north = south;
     }
+
     public void setEast(Room east){
         this.east = east;
     }
