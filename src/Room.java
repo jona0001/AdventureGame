@@ -12,7 +12,6 @@ public class Room {
         this.description = description;
     }
 
-
     public void setNorth (Room north){
         this.north = north;
     }
