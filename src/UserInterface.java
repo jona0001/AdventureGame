@@ -11,11 +11,6 @@ public class UserInterface {
 
     public void startProgram() {
         int sentinel = 9;
-
-
-        while (menuChoice != sentinel){
-
-        }
     }
 
 
@@ -38,6 +33,22 @@ public class UserInterface {
 
     }
 
+    public void introduction() {
+        System.out.println("hello welcome to .....");
+
+        System.out.println(" ______               ___            _ _   _                             ");
+        System.out.println("|  ___|             / _ \\          | | | | |                            ");
+        System.out.println("| |_ ___  __ _ _ __/ /_\\ \\_ __   __| | |_| |_   _ _ __   __ _  ___ _ __ ");
+        System.out.println("|  _/ _ \\/ _` | '__|  _  | '_ \\ / _` |  _  | | | | '_ \\ / _` |/ _ \\ '__|");
+        System.out.println("| ||  __/ (_| | |  | | | | | | | (_| | | | | |_| | | | | (_| |  __/ |   ");
+        System.out.println("\\_| \\___|\\__,_|_|  \\_| |_|_| |_|\\__,_\\_| |_\\__,_|_| |_|\\__, |\\___|_|   ");
+        System.out.println("                                                     __/ |          ");
+        System.out.println("                                                    |___/           ");
+
+        System.out.println("this is a horror survival game");
+        System.out.println("Type 'help' for full list of commands");
+    }
+
     public void menuText() {
         System.out.println("***** Menu *****");
         System.out.println("1. look around");
@@ -49,4 +60,6 @@ public class UserInterface {
         System.out.println("7: Exit room");
 
     }
+
+
 }

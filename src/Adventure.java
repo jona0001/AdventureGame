@@ -1,5 +1,6 @@
 public class Adventure {
     String look;
+    private Room starterRoom;
 
     public Adventure() {
         mapCreator();
@@ -78,5 +79,19 @@ public class Adventure {
             System.out.println("looking around");
         }
     }
+    public Room getStarterRoom() {
+        return starterRoom;
+    }
+
+
+
+
+
+
+
+
+
+
+
 }
 
