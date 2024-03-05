@@ -10,24 +10,22 @@ public class UserInterface {
     }
 
     public void startProgram() {
-        int sentinel = 9;
     }
-
 
     public void navigate() {
         String input = scanner.nextLine();
         switch(input){
             case "go north":
-                System.out.println("Go north");
+                System.out.println("you went north");
                 break;
             case "go south":
-                System.out.println("Go south");
+                System.out.println("you went south");
                 break;
             case "go west":
-                System.out.println("Go west");
+                System.out.println("you went west");
                 break;
             case "go east":
-                System.out.println("Go east");
+                System.out.println("you went east");
                 break;
         }
 
@@ -45,8 +43,11 @@ public class UserInterface {
         System.out.println("                                                     __/ |          ");
         System.out.println("                                                    |___/           ");
 
-        System.out.println("this is a horror survival game");
+        System.out.println("This is a horror survival game");
+        System.out.println("Try and survive while discover the secrets of the tomb");
         System.out.println("Type 'help' for full list of commands");
+        System.out.println("▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n");
+        System.out.println("you find yourself at the entrance of a Dark tomb, you dont remember anything");
     }
 
     public void menuText() {
@@ -58,8 +59,9 @@ public class UserInterface {
         System.out.println("5: go West");
         System.out.println("6: help");
         System.out.println("7: Exit room");
+        System.out.println("7: Exit room");
+        System.out.println("9: Exit game");
 
     }
-
 
 }

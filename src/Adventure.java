@@ -77,6 +77,8 @@ public class Adventure {
 
         if (look.contains("look")) {
             System.out.println("looking around");
+            System.out.println("you see");
+
         }
     }
     public Room getStarterRoom() {
