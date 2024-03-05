@@ -28,7 +28,6 @@ public class UserInterface {
                 System.out.println("you went east");
                 break;
         }
-
     }
 
     public void introduction() {
@@ -61,7 +60,6 @@ public class UserInterface {
         System.out.println("7: Exit room");
         System.out.println("7: Exit room");
         System.out.println("9: Exit game");
-
     }
 
 }

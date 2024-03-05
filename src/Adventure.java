@@ -1,6 +1,7 @@
 public class Adventure {
     String look;
     private Room starterRoom;
+    private Room currentRoom;
     private Player player;
 
     public Adventure() {
@@ -73,6 +74,49 @@ public class Adventure {
         room9.setWest(room8);
         room9.setSouth(null);
     }
+    public void goNorth(){
+        if (currentRoom.getNorth() !=null){
+            currentRoom = currentRoom.getNorth();
+            System.out.println("going north");
+            currentRoomPrint();
+        } else {
+            notPossible();
+        }
+    }
+    public void goSouth(){
+        if (currentRoom.getSouth() !=null){
+            currentRoom = currentRoom.getSouth();
+            System.out.println("going South");
+            currentRoomPrint();
+        } else {
+            notPossible();
+        }
+    }
+    public void goEast(){
+        if (currentRoom.getEast() !=null){
+            currentRoom = currentRoom.getEast();
+            System.out.println("going east");
+            currentRoomPrint();
+        } else {
+            notPossible();
+        }
+    }
+    public void goWest(){
+        if (currentRoom.getWest() !=null){
+            currentRoom = currentRoom.getWest();
+            System.out.println("going West");
+            currentRoomPrint();
+        } else {
+            notPossible();
+        }
+    }
+
+
+
+    public void currentRoomPrint() {
+        System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
+    }
+
 
     public void currentRoom(String look) {
         this.look = look;
@@ -84,6 +128,9 @@ public class Adventure {
     }
     public Room getStarterRoom() {
         return starterRoom;
+    }
+    public void notPossible() {
+        System.out.println("You cannot go there");
     }
 }
 
