@@ -1,9 +1,11 @@
 public class Adventure {
     String look;
     private Room starterRoom;
+    private Player player;
 
     public Adventure() {
         mapCreator();
+        player = new Player(getStarterRoom());
     }
 
     public void mapCreator() {
@@ -78,22 +80,10 @@ public class Adventure {
         if (look.contains("look")) {
             System.out.println("looking around");
             System.out.println("you see");
-
         }
     }
     public Room getStarterRoom() {
         return starterRoom;
     }
-
-
-
-
-
-
-
-
-
-
-
 }
 
