@@ -17,33 +17,34 @@ public class UserInterface {
         while (true) {
             String input = scanner.nextLine().toLowerCase();
             if (input.equals("1")) {
-                player.currentRoomPrint();
+                move(input);
+
 
 
             }
         }
     }
-    public boolean move(String userInput) {
-        switch (userInput.toLowerCase()) {
+    public boolean move(String input) {
+        switch (input.toLowerCase()) {
             case "go north":
             case "north":
             case "n":
-                goNorth();
+                adventure.goNorth();
                 break;
             case "go south":
             case "south":
             case "s":
-                goSouth();
+                adventure.goSouth();
                 break;
             case "go west":
             case "west":
             case "w":
-                goWest();
+                adventure.goWest();
                 break;
             case "go east":
             case "east":
             case "e":
-                goEast();
+                adventure.goEast();
                 break;
         } return true;
     }
