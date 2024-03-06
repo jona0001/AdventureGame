@@ -1,5 +1,7 @@
 public class Map {
     private Room starterRoom;
+
+
     //toString måske laves
     public void mapCreator() {
         Room room1 = new Room("Room 1", "You find yourself at the entrance to a tomb. There are two doors.");
@@ -48,7 +50,13 @@ public class Map {
         room9.setNorth(room6);
         room9.setWest(room8);
 
+        //the starter room
+        starterRoom = room1;
+
     }
+
+
+
     public Room getStarterRoom() {
         return starterRoom;
     }

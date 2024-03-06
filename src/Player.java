@@ -2,10 +2,9 @@ import java.util.ArrayList;
 
 public class Player {
     private Room currentRoom;
-    public Player (Room currentRoom){
-        this.currentRoom = currentRoom;
+    public Player (Room firstRoom){
+        this.currentRoom = firstRoom;
     }
-    
 
     public void goNorth(){
         if (currentRoom.getNorth() !=null){
@@ -50,7 +49,41 @@ public class Player {
     public void notPossible() {
         System.out.println("You cannot go there");
     }
+
     public Room getCurrentRoom() {
         return currentRoom;
     }
+    public void setCurrentRoom(Room currentRoom) {
+        this.currentRoom = currentRoom;
+    }
+
+    public void move(String input) {
+        switch (input.toLowerCase()) {
+            case "go north":
+            case "north":
+            case "n":
+                goNorth();
+                break;
+            case "go south":
+            case "south":
+            case "s":
+                goSouth();
+                break;
+            case "go west":
+            case "west":
+            case "w":
+                goWest();
+                break;
+            case "go east":
+            case "east":
+            case "e":
+                goEast();
+                break;
+        }
+    }
+
+
+
+
+
 }

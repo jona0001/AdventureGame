@@ -18,5 +18,9 @@ public class Adventure {
     public void goWest(){
         player.goWest();
     }
+
+    public Player getPlayer() {
+        return player;
+    }
 }
 
