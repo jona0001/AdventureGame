@@ -1,8 +1,10 @@
 import java.util.Scanner;
 
 public class UserInterface {
-    private Adventure adventure;
+    //our scanner
     Scanner scanner = new Scanner(System.in);
+    private Adventure adventure;
+    private Player player;
 
     public UserInterface() {
         adventure = new Adventure();
@@ -10,11 +12,45 @@ public class UserInterface {
     }
 
     public void startProgram() {
+        introduction();
+        menuText();
+        while (true) {
+            String input = scanner.nextLine().toLowerCase();
+            if (input.equals("1")) {
+                player.currentRoomPrint();
+
+
+            }
+        }
+    }
+    public boolean move(String userInput) {
+        switch (userInput.toLowerCase()) {
+            case "go north":
+            case "north":
+            case "n":
+                goNorth();
+                break;
+            case "go south":
+            case "south":
+            case "s":
+                goSouth();
+                break;
+            case "go west":
+            case "west":
+            case "w":
+                goWest();
+                break;
+            case "go east":
+            case "east":
+            case "e":
+                goEast();
+                break;
+        } return true;
     }
 
     public void navigate() {
         String input = scanner.nextLine();
-        switch(input){
+        switch (input) {
             case "go north":
                 System.out.println("you went north");
                 break;
@@ -44,22 +80,35 @@ public class UserInterface {
 
         System.out.println("This is a horror survival game");
         System.out.println("Try and survive while discover the secrets of the tomb");
-        System.out.println("Type 'help' for full list of commands");
         System.out.println("▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n");
-        System.out.println("you find yourself at the entrance of a Dark tomb, you dont remember anything");
+        System.out.println("Press 1 to start a new game!");
+        //System.out.println("you find yourself at the entrance of a Dark tomb, you dont remember anything");
     }
+
+    /*public void newGame() {
+        System.out.println("Press 1 to start a new game");
+        int newGame = 1;
+        int inputNewGame = scanner.nextInt();
+        if (inputNewGame == newGame) {
+            System.out.println("You find yourself at the entrance of a Dark tomb, you dont remember anything");
+        } else {
+            System.out.println("Please enter 1 to start new game\"");
+        }
+    }*/
 
     public void menuText() {
         System.out.println("***** Menu *****");
-        System.out.println("1. look around");
-        System.out.println("2: go north");
-        System.out.println("3: go east");
-        System.out.println("4: go South");
-        System.out.println("5: go West");
-        System.out.println("6: help");
-        System.out.println("7: Exit room");
-        System.out.println("7: Exit room");
-        System.out.println("9: Exit game");
+        System.out.println("Type 'Look' to look around");
+        System.out.println("Type 'North' or 'N' to go north");
+        System.out.println("Type 'East' or 'E' to go east");
+        System.out.println("Type 'South' or 'S' to go south");
+        System.out.println("Type 'West' or 'W' to go west");
+        System.out.println("Type 'Help' or 'H' to see all controls");
+        System.out.println("Type 'Exit' to exit game");
+    }
+
+    public void exit() {
+        System.out.println("Exiting game, thanks for playing...");
     }
 
 }

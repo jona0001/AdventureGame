@@ -5,6 +5,5 @@ public class Main {
 
         //Adventure adventure = new Adventure();
         //adventure.currentRoom("look");
-
     }
 }

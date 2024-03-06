@@ -17,20 +17,17 @@ public class Room {
     public String getDescription() {
         return description;
     }
-
     public void setDescription(String description) {
         this.description = description;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
-    public void setNorth (Room north){
+    public void setNorth(Room north){
         this.north = north;
     }
     public void setSouth(Room south){
-        this.north = south;
+        this.south = south;
     }
     public void setEast(Room east){
         this.east = east;
@@ -50,11 +47,5 @@ public class Room {
     public Room getWest(){
         return west;
     }
-
-
-
-
-
-
 
 }
