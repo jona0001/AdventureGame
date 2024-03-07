@@ -6,11 +6,13 @@ public class Room {
     private Room east;
     private Room west;
 
-
+    // adds name and descriptions to new rooms
     public Room(String name, String description) {
         this.name = name;
         this.description = description;
     }
+
+    //setters so i can set the value, and getters, so we can retrieve the value.
     public String getName() {
         return name;
     }

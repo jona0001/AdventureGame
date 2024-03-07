@@ -2,7 +2,8 @@ public class Map {
     private Room starterRoom;
 
 
-    //toString måske laves
+    //toString maybe, if there is time
+    // 9 instances of rooms, with established connections, designated room 1 to the starter room
     public void mapCreator() {
         Room room1 = new Room("Room 1", "You find yourself at the entrance to a tomb. There are two doors.");
         Room room2 = new Room("Room 2", "You enter a maze. The light is dim.");

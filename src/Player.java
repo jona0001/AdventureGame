@@ -2,10 +2,13 @@ import java.util.ArrayList;
 
 public class Player {
     private Room currentRoom;
+
+    //constructor that sets the room where the player spawns.
     public Player (Room firstRoom){
         this.currentRoom = firstRoom;
     }
 
+    // methods so the player can move to different rooms
     public void goNorth(){
         if (currentRoom.getNorth() !=null){
             currentRoom = currentRoom.getNorth();
@@ -42,6 +45,7 @@ public class Player {
             notPossible();
         }
     }
+    //curren room name and description
     public void currentRoomPrint() {
         System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
     }
@@ -57,6 +61,7 @@ public class Player {
         this.currentRoom = currentRoom;
     }
 
+    //makes the move methods work with string input.
     public void move(String input) {
         switch (input.toLowerCase()) {
             case "go north":

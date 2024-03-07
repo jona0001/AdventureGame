@@ -1,12 +1,13 @@
 import java.util.Scanner;
 
 public class UserInterface {
-    //our scanner
+    //our scanner and other attributes
     private Scanner scanner;
     private Adventure adventure;
     private Player player;
     private boolean isRunning;
 
+    //constructor Set the initial value for the class attributes.
     public UserInterface() {
         this.scanner = new Scanner(System.in);
         this.scanner.useDelimiter("\n");
@@ -15,6 +16,8 @@ public class UserInterface {
         this.player = this.adventure.getPlayer();
     }
 
+
+    //start program - menu to the user
     public void startProgram() {
         introduction();
         menuText();
@@ -37,7 +40,7 @@ public class UserInterface {
             }
         }
     }
-
+    //movement packaged.
     public void move() {
         System.out.println("Enter direction (North, South, East, West): ");
         String input = scanner.next();

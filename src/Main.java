@@ -1,9 +1,6 @@
 public class Main {
     public static void main(String[] args) {
         UserInterface userInterface = new UserInterface();
-        userInterface.navigate();
-
-        //Adventure adventure = new Adventure();
-        //adventure.currentRoom("look");
+        userInterface.startProgram();
     }
 }

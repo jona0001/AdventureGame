@@ -2,6 +2,7 @@ public class Adventure {
     private Player player;
     private Map map = new Map();
 
+    //
     public Adventure() {
         map.mapCreator();
         player = new Player(map.getStarterRoom());
