@@ -93,18 +93,3 @@ public class UserInterface {
 }
 
 
-
-
-
-
-
-/*public void newGame() {
-        System.out.println("Press 1 to start a new game");
-        int newGame = 1;
-        int inputNewGame = scanner.nextInt();
-        if (inputNewGame == newGame) {
-            System.out.println("You find yourself at the entrance of a Dark tomb, you dont remember anything");
-        } else {
-            System.out.println("Please enter 1 to start new game\"");
-        }
-    }*/
