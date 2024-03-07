@@ -12,7 +12,7 @@ public class Room {
         this.description = description;
     }
 
-    //setters so i can set the value, and getters, so we can retrieve the value.
+    //setters that set the value, and getters, so we can retrieve the value.
     public String getName() {
         return name;
     }

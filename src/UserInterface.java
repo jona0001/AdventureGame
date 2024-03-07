@@ -27,13 +27,13 @@ public class UserInterface {
                 case "exit":
                     exit();
                     break;
-                case "move":
+                case "move", "m":
                     move();
                     break;
-                case "look":
+                case "look", "l":
                     player.currentRoomPrint();
                     break;
-                case "help":
+                case "help", "h":
                     menuText();
                 default:
                     System.out.println("Invalid command. Type 'Help' for a list of commands.");
@@ -42,7 +42,7 @@ public class UserInterface {
     }
     //movement packaged.
     public void move() {
-        System.out.println("Enter direction (North, South, East, West): ");
+        System.out.println("Enter direction (North, South, East, West, N, S, E, W): ");
         String input = scanner.next();
         player.move(input);
     }
