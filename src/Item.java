@@ -1,28 +1,28 @@
 public class Item {
-    private String longName;
-    private String shortName;
+    private String itemDescription;
+    private String itemName;
 
-    //****CONSTRUCTOR***** (Opskriften på objektet)
-    public Item(String shortName, String longName) {
-        this.shortName = shortName;
-        this.longName = longName;
+    //****CONSTRUCTOR*****
+    public Item(String itemName, String itemDescription) {
+        this.itemName = itemName;
+        this.itemDescription = itemDescription;
     }
 
-    //****SETTER**** (Gør så man kan overskrive data)
-    public void setLongName(String longName) {
-        this.longName = longName;
+    //****SETTER****
+    public void setItemDescription(String itemDescription) {
+        this.itemDescription = itemDescription;
     }
 
-    public void setShortName(String shortName) {
-        this.shortName = shortName;
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
     }
 
-    //****GETTER**** (Henter privat data, så du kan aflæse det)
-    public String getShortName() {
-        return shortName;
+    //****GETTER****
+    public String getItemName() {
+        return itemName;
     }
 
-    public String getLongName() {
-        return longName;
+    public String getItemDescription() {
+        return itemDescription;
     }
 }

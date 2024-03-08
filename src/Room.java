@@ -7,7 +7,7 @@ public class Room {
     private Room south;
     private Room east;
     private Room west;
-    private ArrayList<Item> itemList = new ArrayList<>();
+    private ArrayList<Item> roomItemList = new ArrayList<>();
 
     // Adds name and descriptions to new rooms
     public Room(String name, String description) {
@@ -65,21 +65,22 @@ public class Room {
         this.name = name;
     }
 
-    public void addItem(Item item) {
-        itemList.add(item);
+    public void addItemInRoom(Item item) {
+        roomItemList.add(item);
     }
     public Item searchItemRoom(String shortName) {
-        for (Item item : itemList) {
-            if (item.getShortName().toLowerCase().equals(shortName.toLowerCase())) {
+        for (Item item : roomItemList) {
+            if (item.getItemName().toLowerCase().equals(shortName.toLowerCase())) {
                 return item;
             }
         }
         return null;
     }
 
-    public void removeItem(String shortName) {
+    public Item removeRoomItem(String shortName) {
         Item itemToRemove = searchItemRoom(shortName);
-        itemList.remove(itemToRemove);
+        roomItemList.remove(itemToRemove);
+        return itemToRemove;
     }
 
 }

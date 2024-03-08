@@ -9,11 +9,11 @@ public class UserInterface {
 
     //constructor Set the initial value for the class attributes.
     public UserInterface() {
-        this.scanner = new Scanner(System.in);
-        this.scanner.useDelimiter("\n"); //Så vi ikke skal bruge dummy bugs
-        this.adventure = new Adventure();
-        this.isRunning = true;
-        this.Player = this.adventure.getPlayer();
+        scanner = new Scanner(System.in);
+        scanner.useDelimiter("\n");
+        adventure = new Adventure();
+        isRunning = true;
+
     }
 
     //start program - menu to the user
@@ -66,42 +66,7 @@ public class UserInterface {
         System.out.println("you find yourself at the entrance of a Dark tomb, you dont remember anything");
     }
 
-    /*public void newGame() {
-        System.out.println("Press 1 to start a new game");
-        int newGame = 1;
-        int inputNewGame = scanner.nextInt();
-        if (inputNewGame == newGame) {
-            System.out.println("You find yourself at the entrance of a Dark tomb, you dont remember anything");
-        } else {
-            System.out.println("Please enter 1 to start new game\"");
-        }
-    }*/
 
-    //Split metode med UI
-    public void userInput() {
-        String input = scanner.nextLine().trim().toLowerCase();
-        String[] commands = input.split("\\s+");
-        String command = commands[0];
-
-
-        if (commands.length == 1) {
-            switch (command) {
-                //-> lambda expression  og gør så der ikke skal break; på.
-                case "help", "h" -> {
-                    System.out.println("Commands:");
-                    //Flere Help Commands
-
-                }
-                case "look" -> {
-                    player.currentRoomPrint();
-
-                }
-                case "inventory" -> {
-                    System.out.println(adventure.getPlayer().getInventory());
-                }
-            }
-        }
-    }
 
     public void menuText() {
         System.out.println("***** Menu *****");
@@ -117,15 +82,49 @@ public class UserInterface {
     }
 
     //remove item
-    public void removeItem() {
-        String input = scanner.next();
-        System.out.println("What do you want to remove from your inventory?");
-        player.removeItem(input);??
-        System.out.println(takeItem + " has been removed from your inventory");
+
+
+
+    public void userInput() {
+        String input = scanner.nextLine().trim().toLowerCase();
+        String[] commands = input.split("\\s+");
+        String command = commands[0];
+
+
+        if (commands.length == 1) {
+            switch (command) {
+                //->
+                case "help", "h" -> {
+                    System.out.println("Commands:");
+
+
+                }
+                case "look" -> {
+                    adventure.getCurrentRoomPrint();
+
+                }
+                case "inventory" -> {
+                    System.out.println(adventure.getPlayer().getInventory());
+                }
+            }
+        }
+        if (commands.length == 2)
+            switch (commands[0]) {
+             case "take" ->{
+
+
+            Item takeItem = adventure.getaddPlayerItem(commands[1]);
+            if (takeItem != null){
+                System.out.println("You picked up "+ takeItem);
+            }else System.out.println("There is no ");
+            }}
+
     }
 
     //take item
 
 
+
+
 }
-}
+

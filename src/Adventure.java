@@ -53,15 +53,17 @@ public class Adventure {
         }
     }
 
-    public void getCurrentRoomPrint () {
-        player.currentRoomPrint();
+    public void getCurrentRoomPrint (){
+        player.currentRoomPrint(); 
     }
 
+    public Item getaddPlayerItem(String itemName){
+        return player.addPlayerItem(itemName);
+    }
 
-
-
-
-
+    public Item getdropPlayerItem(String itemName){
+        return player.dropPlayerItem(itemName);
+    }
 
 
 }

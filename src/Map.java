@@ -14,15 +14,15 @@ public class Map {
         Room room8 = new Room("Room 8", "You slide down to a big dining hall. There are fresh meals on the table.");
         Room room9 = new Room("Room 9", "You're in a big laboratory. You hear screaming coming from the walls");
 
-        //items som går igen
+        //item
         Item apple = new Item("Apple", "A good looking apple");
-
+        Item health_potion = new Item("health potion", "a health potion that gives you 25 health points");
         // room 1
         room1.setEast(room2);
         room1.setSouth(room4);
-        //adder et item direkte
-        room1.addItem(new Item("torch", "long torch"));
-        room1.addItem(apple);
+        //item
+        room1.addItemInRoom(new Item("torch", "long thicc torch"));
+        room1.addItemInRoom(apple);
 
         // room 2
         room2.setEast(room3);
@@ -31,7 +31,7 @@ public class Map {
         // room 3
         room3.setWest(room2);
         room3.setSouth(room6);
-        room3.addItem(new Item("knife", "a dull knife with a rusty blade"));
+        room3.addItemInRoom(new Item("knife", "a dull knife with a rusty blade"));
 
         // room 4
         room4.setNorth(room1);

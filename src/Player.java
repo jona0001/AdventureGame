@@ -9,7 +9,7 @@ public class Player {
     //***CONSTRUCTOR***
     public Player(Room currentRoom) {
         this.currentRoom = currentRoom;
-        //PLayer har inventory
+        //player inventory
         this.inventory = new ArrayList<>();
     }
 
@@ -68,52 +68,33 @@ public class Player {
         System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
     }
 
-    //makes the move methods work with string input.
-    public void move(String input) {
-        switch (input.toLowerCase()) {
-            case "go north":
-            case "north":
-            case "n":
-                goNorth();
-                break;
-            case "go south":
-            case "south":
-            case "s":
-                goSouth();
-                break;
-            case "go west":
-            case "west":
-            case "w":
-                goWest();
-                break;
-            case "go east":
-            case "east":
-            case "e":
-                goEast();
-                break;
-        }
-    }
+
 
     public Item searchItemInventory(String shortName) {
         for (Item item : inventory) {
-            if (item.getShortName().equalsIgnoreCase(shortName)) {
+            if (item.getItemName().equalsIgnoreCase(shortName)) {
                 return item;
             }
         }
         return null;
     }
 
-    public void addItem(Item item) {
-        inventory.add(item);
+    public Item addPlayerItem(String itemName) {
+      Item pickedItem = getCurrentRoom().removeRoomItem(itemName);
+      currentRoom.addItemInRoom(pickedItem);
+      return pickedItem;
     }
 
-    public void removeItem(String shortName) {
-        Item itemToRemove = searchItemInventory(shortName);
-        inventory.remove(itemToRemove);
+    public Item dropPlayerItem(String shortName) {
+        Item itemToDrop = searchItemInventory(shortName);
+        inventory.remove(itemToDrop);
+        return itemToDrop;
     }
 
     public ArrayList<Item> getInventory() {
         return inventory;
     }
+
+
 }
 
