@@ -120,7 +120,7 @@ public class UserInterface {
     public void removeItem() {
         String input = scanner.next();
         System.out.println("What do you want to remove from your inventory?");
-        player.removeItem(input);
+        player.removeItem(input);??
         System.out.println(takeItem + " has been removed from your inventory");
     }
 
