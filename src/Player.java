@@ -99,7 +99,8 @@ public class Player {
             if (item.getShortName().equalsIgnoreCase(shortName)) {
                 return item;
             }
-        } return null;
+        }
+        return null;
     }
 
     public void addItem(Item item) {
@@ -113,6 +114,6 @@ public class Player {
 
     public ArrayList<Item> getInventory() {
         return inventory;
+    }
 }
-public void
 
