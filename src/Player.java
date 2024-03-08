@@ -1,71 +1,64 @@
 import java.util.ArrayList;
 
 public class Player {
-    //***ATTRIBUTES**
     private Room currentRoom;
-    private ArrayList<Item> inventory;
 
-
-    //***CONSTRUCTOR***
-    public Player(Room currentRoom) {
-        this.currentRoom = currentRoom;
-        //PLayer har inventory
-        this.inventory = new ArrayList<>();
+    //constructor that sets the room where the player spawns.
+    public Player (Room firstRoom){
+        this.currentRoom = firstRoom;
     }
 
-
-    public void goNorth() {
-        if (currentRoom.getNorth() == null) {
-            System.out.println("This path is not available");
-        } else {
+    // methods so the player can move to different rooms
+    public void goNorth(){
+        if (currentRoom.getNorth() !=null){
             currentRoom = currentRoom.getNorth();
-            System.out.println(" ");
-            System.out.println("Going North");
+            System.out.println("going north");
+            currentRoomPrint();
+        } else {
+            notPossible();
         }
     }
-
-    public void goSouth() {
-        if (currentRoom.getSouth() == null) {
-            System.out.println("This path is not available");
-        } else {
+    public void goSouth(){
+        if (currentRoom.getSouth() !=null){
             currentRoom = currentRoom.getSouth();
-            System.out.println(" ");
-            System.out.println("Going South");
+            System.out.println("going south");
+            currentRoomPrint();
+        } else {
+            notPossible();
         }
     }
-
-    public void goWest() {
-        if (currentRoom.getWest() == null) {
-            System.out.println("This path is not available");
-        } else {
-            currentRoom = currentRoom.getWest();
-            System.out.println(" ");
-            System.out.println("Going West");
-        }
-    }
-
-    public void goEast() {
-        if (currentRoom.getEast() == null) {
-            System.out.println("This path is not available");
-        } else {
+    public void goEast(){
+        if (currentRoom.getEast() !=null){
             currentRoom = currentRoom.getEast();
-            System.out.println(" ");
-            System.out.println("Going East");
+            System.out.println("going east");
+            currentRoomPrint();
+        } else {
+            notPossible();
         }
+    }
+    public void goWest(){
+        if (currentRoom.getWest() !=null){
+            currentRoom = currentRoom.getWest();
+            System.out.println("going west");
+            currentRoomPrint();
+        } else {
+            notPossible();
+        }
+    }
+    //curren room name and description
+    public void currentRoomPrint() {
+        System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
+    }
+
+    public void notPossible() {
+        System.out.println("You cannot go there");
     }
 
     public Room getCurrentRoom() {
         return currentRoom;
     }
-
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
-    }
-
-
-    //current room name and description
-    public void currentRoomPrint() {
-        System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
     }
 
     //makes the move methods work with string input.
@@ -94,25 +87,8 @@ public class Player {
         }
     }
 
-    public Item searchItemInventory(String shortName) {
-        for (Item item : inventory) {
-            if (item.getShortName().equalsIgnoreCase(shortName)) {
-                return item;
-            }
-        } return null;
-    }
 
-    public void addItem(Item item) {
-        inventory.add(item);
-    }
 
-    public void removeItem(String shortName) {
-        Item itemToRemove = searchItemInventory(shortName);
-        inventory.remove(itemToRemove);
-    }
 
-    public ArrayList<Item> getInventory() {
-        return inventory;
+
 }
-public void
-

@@ -4,7 +4,6 @@ public class UserInterface {
     //our scanner and other attributes
     private Scanner scanner;
     private Adventure adventure;
-    private Player player;
     private boolean isRunning;
     private Item item;
 
@@ -14,7 +13,7 @@ public class UserInterface {
         this.scanner.useDelimiter("\n"); //Så vi ikke skal bruge dummy bugs
         this.adventure = new Adventure();
         this.isRunning = true;
-        this.player = this.adventure.getPlayer();
+        this.Player = this.adventure.getPlayer();
     }
 
     //start program - menu to the user
@@ -31,7 +30,7 @@ public class UserInterface {
                     move();
                     break;
                 case "look":
-                    player.currentRoomPrint();
+                    adventure.getCurrentRoomPrint();
                     break;
                 case "help":
                     menuText();
@@ -45,7 +44,7 @@ public class UserInterface {
     public void move() {
         System.out.println("Enter direction (North, South, East, West): ");
         String input = scanner.next();
-        player.move(input);
+        adventure.move(input);
     }
 
 
