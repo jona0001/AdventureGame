@@ -58,10 +58,6 @@ public class Player {
         return currentRoom;
     }
 
-    public void setCurrentRoom(Room currentRoom) {
-        this.currentRoom = currentRoom;
-    }
-
 
     //current room name and description
     public void currentRoomPrint() {

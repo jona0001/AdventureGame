@@ -25,4 +25,7 @@ public class Item {
     public String getItemDescription() {
         return itemDescription;
     }
+    public String toString() {
+        return itemDescription;
+    }
 }

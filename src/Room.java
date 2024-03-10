@@ -82,6 +82,11 @@ public class Room {
         roomItemList.remove(itemToRemove);
         return itemToRemove;
     }
+    public void printRoomItemList() {
+        for (Item item : roomItemList) {
+            System.out.println(item);
+        }
+    }
 
 }
 

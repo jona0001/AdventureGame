@@ -28,30 +28,6 @@ public class Adventure {
         return player;
     }
 
-    public void move(String input) {
-        switch (input.toLowerCase()) {
-            case "go north":
-            case "north":
-            case "n":
-                goNorth();
-                break;
-            case "go south":
-            case "south":
-            case "s":
-                goSouth();
-                break;
-            case "go west":
-            case "west":
-            case "w":
-                goWest();
-                break;
-            case "go east":
-            case "east":
-            case "e":
-                goEast();
-                break;
-        }
-    }
 
     public void getCurrentRoomPrint (){
         player.currentRoomPrint(); 
@@ -64,6 +40,16 @@ public class Adventure {
     public Item getdropPlayerItem(String itemName){
         return player.dropPlayerItem(itemName);
     }
+    public void printItemList() {
+        getCurrentRoom().printRoomItemList();
+    }
+    public Room getCurrentRoom() {
+        return player.getCurrentRoom();
+    }
+
+
+
+
 
 
 

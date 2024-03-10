@@ -43,22 +43,13 @@ public class UserInterface {
                 }
                 case "look" -> {
                     adventure.getCurrentRoomPrint();
+                    adventure.printItemList();
                 }
                 case "inventory" -> {
                     System.out.println(adventure.getPlayer().getInventory());
                 }
                 case "exit" -> {
                     System.exit(0);
-                }
-            }
-        }
-        if (commands.length == 2) {
-            switch (commands[0]) {
-                case "take" -> {
-                    Item takeItem = adventure.getaddPlayerItem(commands[1]);
-                    if (takeItem != null) {
-                        System.out.println("You picked up " + takeItem);
-                    } else System.out.println("There is no ");
                 }
             }
         }
@@ -82,21 +73,29 @@ public class UserInterface {
                             adventure.goWest();
                             adventure.getCurrentRoomPrint();
                         }
-
                     }
-
                 }
-                default -> System.out.println("\nInvalid input, type 'help' for list of commands");
+
+                case "take" -> {
+                    Item takeItem = adventure.getaddPlayerItem(commands[1]);
+                    if (takeItem != null) {
+                        System.out.println("You picked up " + takeItem + "'");
+                    } else System.out.println("There is no " + commands[1] + " in this room");
+                }
+                case "drop" -> {
+                    Item dropItem = adventure.getdropPlayerItem(commands[1]);
+                    if (dropItem != null) {
+                        System.out.println("Dropped '" + dropItem + "'");
+                    } else {
+                        System.out.println("There is no " + commands[1] + " in your inventory");
+                    }
+                }
             }
 
         }
 
     }
-
-    //start program - menu to the user
-
-
-    public void introduction() {
+    public void introduction () {
         System.out.println("hello welcome to .....");
 
         System.out.println(" ______               ___            _ _   _                             ");
@@ -113,20 +112,14 @@ public class UserInterface {
         System.out.println("▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n");
         System.out.println("you find yourself at the entrance of a Dark tomb, you dont remember anything");
     }
-
-
-    public void menuText() {
-        System.out.println("***** Menu *****");
-        System.out.println("Type 'Look' to look around");
-        System.out.println("Type 'go' <direction> to move");
-        System.out.println("Type take <item> to pick up an item");
-        System.out.println("Type 'Help' or 'H' to see all controls");
-        System.out.println("Type 'Exit' to exit game");
-    }
-
-    public void exit() {
-        System.out.println("Exiting game, thanks for playing...");
-        inGameSession = false;
+    public void menuText () {
+        System.out.println("Commands:");
+        System.out.println("GO <direction>  - Move in the specified direction (e.g., 'go north', 'go west'). You can also use N, S, E, and W.");
+        System.out.println("LOOK            - Take another look around the room.");
+        System.out.println("TAKE <item>     - Pick up an object from a room (e.g., 'take club').");
+        System.out.println("DROP <item>     - Drop an item inside a room (e.g., 'drop club').");
+        System.out.println("INVENTORY       - View items in your inventory.");
+        System.out.println("EXIT            - Exit the program.");
     }
 
 
