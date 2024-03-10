@@ -6,6 +6,7 @@ public class UserInterface {
     private Adventure adventure;
     private boolean isRunning;
     private Item item;
+    boolean inGameSession = false;
 
     //constructor Set the initial value for the class attributes.
     public UserInterface() {
@@ -16,36 +17,83 @@ public class UserInterface {
 
     }
 
-    //start program - menu to the user
-    public void startProgram() {
-        introduction();
-        menuText();
-        while (isRunning) {
-            String input = scanner.next();
-            switch (input.toLowerCase()) {
-                case "exit":
-                    exit();
-                    break;
-                case "move":
-                    move();
-                    break;
-                case "look":
-                    adventure.getCurrentRoomPrint();
-                    break;
-                case "help":
-                    menuText();
-                default:
-                    System.out.println("Invalid command. Type 'Help' for a list of commands.");
+    public void start() {
+        while (true) {
+            if (!inGameSession) {
+                introduction();
+                menuText();
+                inGameSession = true;
+            } else {
+                userInput();
             }
         }
     }
 
-    //movement packaged.
-    public void move() {
-        System.out.println("Enter direction (North, South, East, West): ");
-        String input = scanner.next();
-        adventure.move(input);
+
+    public void userInput() {
+        String input = scanner.nextLine().trim().toLowerCase();
+        String[] commands = input.split("\\s+");
+        String command = commands[0];
+
+        if (commands.length == 1) {
+            switch (command) {
+                //->
+                case "help", "h" -> {
+                    menuText();
+                }
+                case "look" -> {
+                    adventure.getCurrentRoomPrint();
+                }
+                case "inventory" -> {
+                    System.out.println(adventure.getPlayer().getInventory());
+                }
+                case "exit" -> {
+                    System.exit(0);
+                }
+            }
+        }
+        if (commands.length == 2) {
+            switch (commands[0]) {
+                case "take" -> {
+                    Item takeItem = adventure.getaddPlayerItem(commands[1]);
+                    if (takeItem != null) {
+                        System.out.println("You picked up " + takeItem);
+                    } else System.out.println("There is no ");
+                }
+            }
+        }
+        if (commands.length == 2) {
+            switch (commands[0]) {
+                case "go" -> {
+                    switch (commands[1]) {
+                        case "north", "n" -> {
+                            adventure.goNorth();
+                            adventure.getCurrentRoomPrint();
+                        }
+                        case "south", "s" -> {
+                            adventure.goSouth();
+                            adventure.getCurrentRoomPrint();
+                        }
+                        case "east", "e" -> {
+                            adventure.goEast();
+                            adventure.getCurrentRoomPrint();
+                        }
+                        case "west", "w" -> {
+                            adventure.goWest();
+                            adventure.getCurrentRoomPrint();
+                        }
+
+                    }
+
+                }
+                default -> System.out.println("\nInvalid input, type 'help' for list of commands");
+            }
+
+        }
+
     }
+
+    //start program - menu to the user
 
 
     public void introduction() {
@@ -67,63 +115,19 @@ public class UserInterface {
     }
 
 
-
     public void menuText() {
         System.out.println("***** Menu *****");
         System.out.println("Type 'Look' to look around");
-        System.out.println("Type 'move' to get move commands");
+        System.out.println("Type 'go' <direction> to move");
+        System.out.println("Type take <item> to pick up an item");
         System.out.println("Type 'Help' or 'H' to see all controls");
         System.out.println("Type 'Exit' to exit game");
     }
 
     public void exit() {
         System.out.println("Exiting game, thanks for playing...");
-        isRunning = false;
+        inGameSession = false;
     }
-
-    //remove item
-
-
-
-    public void userInput() {
-        String input = scanner.nextLine().trim().toLowerCase();
-        String[] commands = input.split("\\s+");
-        String command = commands[0];
-
-
-        if (commands.length == 1) {
-            switch (command) {
-                //->
-                case "help", "h" -> {
-                    System.out.println("Commands:");
-
-
-                }
-                case "look" -> {
-                    adventure.getCurrentRoomPrint();
-
-                }
-                case "inventory" -> {
-                    System.out.println(adventure.getPlayer().getInventory());
-                }
-            }
-        }
-        if (commands.length == 2)
-            switch (commands[0]) {
-             case "take" ->{
-
-
-            Item takeItem = adventure.getaddPlayerItem(commands[1]);
-            if (takeItem != null){
-                System.out.println("You picked up "+ takeItem);
-            }else System.out.println("There is no ");
-            }}
-
-    }
-
-    //take item
-
-
 
 
 }

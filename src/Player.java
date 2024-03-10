@@ -68,8 +68,6 @@ public class Player {
         System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
     }
 
-
-
     public Item searchItemInventory(String shortName) {
         for (Item item : inventory) {
             if (item.getItemName().equalsIgnoreCase(shortName)) {
