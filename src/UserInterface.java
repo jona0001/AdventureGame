@@ -8,13 +8,15 @@ public class UserInterface {
     private Item item;
     boolean inGameSession = false;
 
+
+
     //constructor Set the initial value for the class attributes.
     public UserInterface() {
         scanner = new Scanner(System.in);
         scanner.useDelimiter("\n");
         adventure = new Adventure();
         isRunning = true;
-
+        Music music = new Music();
     }
 
     public void start() {
@@ -28,7 +30,6 @@ public class UserInterface {
             }
         }
     }
-
 
     public void userInput() {
         String input = scanner.nextLine().trim().toLowerCase();
@@ -51,6 +52,7 @@ public class UserInterface {
                 case "exit" -> {
                     System.exit(0);
                 }
+
             }
         }
         if (commands.length == 2) {
@@ -120,6 +122,10 @@ public class UserInterface {
         System.out.println("DROP <item>     - Drop an item inside a room (e.g., 'drop club').");
         System.out.println("INVENTORY       - View items in your inventory.");
         System.out.println("EXIT            - Exit the program.");
+    }
+    public void playSoundMethod() {
+        String audioFilePath = "/horrormusic.wav";
+        Music.playAudioFile(audioFilePath);
     }
 
 

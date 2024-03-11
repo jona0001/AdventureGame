@@ -16,12 +16,12 @@ public class Map {
 
         //item
         Item apple = new Item("Apple", "A good looking apple");
-        Item health_potion = new Item("health potion", "a health potion that gives you 25 health points");
+        Item health_potion = new Item("Health potion", "a health potion that gives you 25 health points");
         // room 1
         room1.setEast(room2);
         room1.setSouth(room4);
         //item
-        room1.addItemInRoom(new Item("torch", "A long thicc torch"));
+        room1.addItemInRoom(new Item("torch", "A long thick torch"));
         room1.addItemInRoom(apple);
 
         // room 2

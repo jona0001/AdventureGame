@@ -73,16 +73,26 @@ public class Player {
         return null;
     }
 
-    public Item addPlayerItem(String itemName) {
+    public Item pickedItem(String itemName) {
       Item pickedItem = getCurrentRoom().removeRoomItem(itemName);
-      currentRoom.addItemInRoom(pickedItem);
-      return pickedItem;
+      if (pickedItem != null){
+          inventory.add(pickedItem);
+          return pickedItem;
+      }else {
+          System.out.println("Item not found in room");
+          return null;
+      }
     }
 
-    public Item dropPlayerItem(String shortName) {
-        Item itemToDrop = searchItemInventory(shortName);
-        inventory.remove(itemToDrop);
-        return itemToDrop;
+    public Item dropItem(String itemName) {
+        Item itemToDrop = searchItemInventory(itemName);
+        if (itemToDrop != null) {
+            inventory.remove(itemToDrop);
+            return itemToDrop;
+        } else {
+            System.out.println("Item not found in the inventory.");
+            return null;
+        }
     }
 
     public ArrayList<Item> getInventory() {

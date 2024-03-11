@@ -68,17 +68,20 @@ public class Room {
     public void addItemInRoom(Item item) {
         roomItemList.add(item);
     }
-    public Item searchItemRoom(String shortName) {
+    public Item searchItemRoom(String itemName) {
+        if (itemName == null)
+            return null;
+
         for (Item item : roomItemList) {
-            if (item.getItemName().toLowerCase().equals(shortName.toLowerCase())) {
+            if (item.getItemName().toLowerCase().equals(itemName.toLowerCase())) {
                 return item;
             }
         }
         return null;
     }
 
-    public Item removeRoomItem(String shortName) {
-        Item itemToRemove = searchItemRoom(shortName);
+    public Item removeRoomItem(String itemName) {
+        Item itemToRemove = searchItemRoom(itemName);
         roomItemList.remove(itemToRemove);
         return itemToRemove;
     }
@@ -86,6 +89,9 @@ public class Room {
         for (Item item : roomItemList) {
             System.out.println(item);
         }
+    }
+    public String toString() {
+        return "Room{name='" + name + "', description='" + description + "'}";
     }
 
 }

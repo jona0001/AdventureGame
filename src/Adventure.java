@@ -29,30 +29,25 @@ public class Adventure {
     }
 
 
-    public void getCurrentRoomPrint (){
-        player.currentRoomPrint(); 
+    public void getCurrentRoomPrint() {
+        player.currentRoomPrint();
     }
 
-    public Item getaddPlayerItem(String itemName){
-        return player.addPlayerItem(itemName);
+    public Item getaddPlayerItem(String itemName) {
+        return player.pickedItem(itemName);
     }
 
-    public Item getdropPlayerItem(String itemName){
-        return player.dropPlayerItem(itemName);
+    public Item getdropPlayerItem(String itemName) {
+        return player.dropItem(itemName);
     }
+
     public void printItemList() {
         getCurrentRoom().printRoomItemList();
     }
+
     public Room getCurrentRoom() {
         return player.getCurrentRoom();
     }
-
-
-
-
-
-
-
 
 
 }
