@@ -7,7 +7,7 @@ public class Music {
 
     public Music() {
         try {
-            File audioFile = new File("resources/horrormusic.wav");
+            File audioFile = new File("resources/lofi.wav");
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
             clip = AudioSystem.getClip();
             clip.open(audioStream);
@@ -15,8 +15,6 @@ public class Music {
             e.printStackTrace();
         }
     }
-
-
 
     public void playMusic() {
         if (clip != null && !clip.isRunning()) {
