@@ -98,6 +98,11 @@ public class UserInterface {
                         System.out.println("There is no " + commands[1] + " in your inventory");
                     }
                 }
+                case "eat" -> {
+                    String eat = adventure.getEat(commands[1]);
+                    System.out.println(eat);
+
+                }
             }
 
         }
@@ -127,7 +132,7 @@ public class UserInterface {
         System.out.println("TAKE <item>     - Pick up an object from a room (e.g., 'take club').");
         System.out.println("DROP <item>     - Drop an item inside a room (e.g., 'drop club').");
         System.out.println("INVENTORY, I    - View items in your inventory.");
-        System.out.println("MUTE, M         - to mute the music");
+        System.out.println("MUTE,           - to mute the music");
         System.out.println("resume          - to resume music");
         System.out.println("EXIT            - Exit the program.");
     }

@@ -4,13 +4,14 @@ public class Player {
     //***ATTRIBUTES**
     private Room currentRoom;
     private ArrayList<Item> inventory;
+    private int health;
 
 
     //***CONSTRUCTOR***
     public Player(Room currentRoom) {
         this.currentRoom = currentRoom;
-        //player inventory
         this.inventory = new ArrayList<>();
+        this.health = 100;
     }
 
 
@@ -98,6 +99,30 @@ public class Player {
     public ArrayList<Item> getInventory() {
         return inventory;
     }
+
+    public int getHealth() {
+        return health;
+    }
+    public void setHealth(int health) {
+        this.health = health;
+    }
+    public void removeItem(Item item) {
+        inventory.remove(item);
+    }
+    public String eat (String itemName) {
+        Item item = searchItemInventory(itemName);
+        if (item == null){
+            return "nice try";
+        }else if (item instanceof Food food){
+            removeItem(food);
+            health+= food.getHealingPoint();
+            return "you ate the apple your hp is now " + health;
+        } else {
+            return "dont exist";
+        }
+
+    }
+
 
 
 }

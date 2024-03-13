@@ -49,5 +49,9 @@ public class Adventure {
         return player.getCurrentRoom();
     }
 
+    public String getEat (String itemName){
+        return player.eat(itemName);
+    }
+
 
 }

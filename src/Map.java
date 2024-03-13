@@ -22,7 +22,7 @@ public class Map {
         room1.setSouth(room4);
         //item
         room1.addItemInRoom(new Item("torch", "A long thick torch"));
-        room1.addItemInRoom(apple);
+        room1.addItemInRoom(new Food("apple", "a red apple", 10));
 
         // room 2
         room2.setEast(room3);
