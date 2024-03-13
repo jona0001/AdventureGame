@@ -16,17 +16,7 @@ public class Music {
         }
     }
 
-    public void play() {
-        if (clip != null) {
-            clip.start();
-        }
-    }
 
-    public void stop() {
-        if (clip != null && clip.isRunning()) {
-            clip.stop();
-        }
-    }
 
     public void playMusic() {
         if (clip != null && !clip.isRunning()) {
