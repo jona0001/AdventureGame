@@ -7,6 +7,7 @@ public class UserInterface {
     private boolean isRunning;
     private Item item;
     boolean inGameSession = false;
+    Music music = new Music();
 
 
 
@@ -16,7 +17,7 @@ public class UserInterface {
         scanner.useDelimiter("\n");
         adventure = new Adventure();
         isRunning = true;
-        Music music = new Music();
+        music.play();
     }
 
     public void start() {
@@ -123,10 +124,7 @@ public class UserInterface {
         System.out.println("INVENTORY       - View items in your inventory.");
         System.out.println("EXIT            - Exit the program.");
     }
-    public void playSoundMethod() {
-        String audioFilePath = "/horrormusic.wav";
-        Music.playAudioFile(audioFilePath);
-    }
+
 
 
 }
