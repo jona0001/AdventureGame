@@ -43,17 +43,22 @@ public class UserInterface {
                 case "help", "h" -> {
                     menuText();
                 }
-                case "look" -> {
+                case "look", "l" -> {
                     adventure.getCurrentRoomPrint();
                     adventure.printItemList();
                 }
-                case "inventory" -> {
+                case "inventory", "i" -> {
                     System.out.println(adventure.getPlayer().getInventory());
                 }
                 case "exit" -> {
                     System.exit(0);
                 }
-
+                case "mute" -> {
+                    music.stopMusic();
+                }
+                case "resume" -> {
+                    music.playMusic();
+                }
             }
         }
         if (commands.length == 2) {
@@ -118,10 +123,12 @@ public class UserInterface {
     public void menuText () {
         System.out.println("Commands:");
         System.out.println("GO <direction>  - Move in the specified direction (e.g., 'go north', 'go west'). You can also use N, S, E, and W.");
-        System.out.println("LOOK            - Take another look around the room.");
+        System.out.println("LOOK, L         - Take another look around the room.");
         System.out.println("TAKE <item>     - Pick up an object from a room (e.g., 'take club').");
         System.out.println("DROP <item>     - Drop an item inside a room (e.g., 'drop club').");
-        System.out.println("INVENTORY       - View items in your inventory.");
+        System.out.println("INVENTORY, I    - View items in your inventory.");
+        System.out.println("MUTE, M         - to mute the music");
+        System.out.println("resume          - to resume music");
         System.out.println("EXIT            - Exit the program.");
     }
 
