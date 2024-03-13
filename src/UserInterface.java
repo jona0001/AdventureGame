@@ -17,7 +17,7 @@ public class UserInterface {
         scanner.useDelimiter("\n");
         adventure = new Adventure();
         isRunning = true;
-        music.play();
+        music.playMusic();
     }
 
     public void start() {

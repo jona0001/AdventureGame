@@ -7,7 +7,7 @@ public class Music {
 
     public Music() {
         try {
-            File audioFile = new File("Users/jonat/IdeaProjects/AdventureGame1/resources/horrormusic.wav");
+            File audioFile = new File("resources/horrormusic.wav");
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
             clip = AudioSystem.getClip();
             clip.open(audioStream);
