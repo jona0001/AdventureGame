@@ -141,7 +141,5 @@ public class UserInterface {
         System.out.println("EXIT            - Exit the program.");
     }
 
-
-
 }
 

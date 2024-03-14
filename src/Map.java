@@ -37,7 +37,8 @@ public class Map {
         // room 3
         room3.setWest(room2);
         room3.setSouth(room6);
-        room3.addItemInRoom(new Item("knife", "a dull knife with a rusty blade"));
+        room3.addItemInRoom(new Weapon("knife", "a dull knife with a rusty blade", 1-7));
+        room3.addItemInRoom(new Weapon("pistol", "a old rusty pistol", 5-10));
         room3.addItemInRoom(bread);
 
         // room 4
