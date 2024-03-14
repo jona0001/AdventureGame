@@ -15,9 +15,9 @@ public class Map {
         Room room9 = new Room("Room 9,", "You're in a big laboratory. You hear screaming coming from the walls");
 
         //item
-        Item apple = new Food("Apple", "A good looking apple", 10);
-        Item potion = new Food("potion", "a health potion that gives you 25 health points", 25);
-        Item bread = new Food("bread", "stale bread better than nothing", 5);
+        Item apple = new Consumables("Apple", "A good looking apple", 10);
+        Item potion = new Consumables("potion", "a health potion that gives you 25 health points", 25);
+        Item bread = new Consumables("bread", "stale bread better than nothing", 5);
 
         // room 1
         room1.setEast(room2);
@@ -32,7 +32,7 @@ public class Map {
         //items
         room2.addItemInRoom(potion);
         room2.addItemInRoom(new Item("coin", "a weird looking silver coin"));
-        room2.addItemInRoom(new Food("poison", "its poison", -10));
+        room2.addItemInRoom(new Consumables("poison", "its poison", -10));
 
         // room 3
         room3.setWest(room2);

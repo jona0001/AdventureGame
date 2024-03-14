@@ -1,7 +1,7 @@
-public class Food extends Item {
+public class Consumables extends Item {
     int healingPoint;
 
-    public Food(String itemName, String itemDescription, int healingPoint){
+    public Consumables(String itemName, String itemDescription, int healingPoint){
         super (itemName, itemDescription);
         this.healingPoint = healingPoint;
     }

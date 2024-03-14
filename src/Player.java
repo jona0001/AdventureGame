@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 
 public class Player {
+
+
     //***ATTRIBUTES**
     private Room currentRoom;
     private ArrayList<Item> inventory;
@@ -75,14 +77,14 @@ public class Player {
     }
 
     public Item pickedItem(String itemName) {
-      Item pickedItem = getCurrentRoom().removeRoomItem(itemName);
-      if (pickedItem != null){
-          inventory.add(pickedItem);
-          return pickedItem;
-      }else {
-          System.out.println("Item not found in room");
-          return null;
-      }
+        Item pickedItem = getCurrentRoom().removeRoomItem(itemName);
+        if (pickedItem != null) {
+            inventory.add(pickedItem);
+            return pickedItem;
+        } else {
+            System.out.println("Item not found in room");
+            return null;
+        }
     }
 
     public Item dropItem(String itemName) {
@@ -103,25 +105,33 @@ public class Player {
     public int getHealth() {
         return health;
     }
+
     public void setHealth(int health) {
         this.health = health;
+
     }
+
     public void removeItem(Item item) {
         inventory.remove(item);
     }
-    public String eat (String itemName) {
+
+    public String eat(String itemName) {
         Item item = searchItemInventory(itemName);
-        if (item == null){
-            return "nice try";
-        }else if (item instanceof Food food){
+        if (item == null) {
+            return "You don't have that item";
+        } else if (item instanceof Consumables food) {
+            if (health + food.getHealingPoint()>=100){
+                setHealth(100);
+                removeItem(food);
+                return "You ate the "+itemName;
+            } else{
             removeItem(food);
-            health+= food.getHealingPoint();
-            return "you ate the " + itemName;
+            health += food.getHealingPoint();
+            return "You ate the " + itemName;}
         } else {
 
-            return "dont exist";
+            return "Doesn't exist";
         }
-
     }
 
 }
