@@ -52,5 +52,4 @@ public class Adventure {
     public String getEat (String itemName){
         return player.eat(itemName);
     }
-
 }

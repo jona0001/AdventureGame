@@ -10,6 +10,7 @@ public class UserInterface {
     Music music = new Music();
 
 
+
     //constructor Set the initial value for the class attributes.
     public UserInterface() {
         scanner = new Scanner(System.in);
@@ -52,7 +53,7 @@ public class UserInterface {
                 case "exit" -> {
                     System.exit(0);
                 }
-                case "mute", "m" -> {
+                case "mute" -> {
                     music.stopMusic();
                 }
                 case "resume" -> {
@@ -110,8 +111,7 @@ public class UserInterface {
         }
 
     }
-
-    public void introduction() {
+    public void introduction () {
         System.out.println("hello welcome to .....");
 
         System.out.println(" ______               ___            _ _   _                             ");
@@ -128,19 +128,19 @@ public class UserInterface {
         System.out.println("▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n");
         System.out.println("you find yourself at the entrance of a Dark tomb, you dont remember anything");
     }
-
-    public void menuText() {
+    public void menuText () {
         System.out.println("Commands:");
-        System.out.println("GO <direction>  - Move in the specified direction (fx: 'go north', 'go west'). You can also use N, S, E, and W.");
+        System.out.println("GO <direction>  - Move in the specified direction (e.g., 'go north', 'go west'). You can also use N, S, E, and W.");
         System.out.println("LOOK, L         - Take another look around the room.");
-        System.out.println("TAKE <item>     - Pick up an object from a room (fx: 'take club').");
-        System.out.println("DROP <item>     - Drop an item inside a room (fx: 'drop club').");
+        System.out.println("TAKE <item>     - Pick up an object from a room (e.g., 'take club').");
+        System.out.println("DROP <item>     - Drop an item inside a room (e.g., 'drop club').");
         System.out.println("INVENTORY, I    - View items in your inventory.");
         System.out.println("HEALTH          - See your health");
         System.out.println("MUTE,           - Mute music");
         System.out.println("resume          - Resume music");
         System.out.println("EXIT            - Exit the program.");
     }
+
 
 
 }

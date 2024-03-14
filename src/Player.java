@@ -116,14 +116,13 @@ public class Player {
         }else if (item instanceof Food food){
             removeItem(food);
             health+= food.getHealingPoint();
-            return "you ate the apple your hp is now " + health;
+            return "you ate the " + itemName;
         } else {
+
             return "dont exist";
         }
 
     }
-
-
 
 }
 

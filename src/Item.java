@@ -26,6 +26,6 @@ public class Item {
         return itemDescription;
     }
     public String toString() {
-        return itemDescription;
+        return itemName + itemDescription;
     }
 }
