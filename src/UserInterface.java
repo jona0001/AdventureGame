@@ -8,8 +8,6 @@ public class UserInterface {
     boolean inGameSession = false;
     Music music = new Music();
 
-
-
     //constructor Set the initial value for the class attributes.
     public UserInterface() {
         scanner = new Scanner(System.in);
@@ -87,14 +85,12 @@ public class UserInterface {
                     Item takeItem = adventure.getaddPlayerItem(commands[1]);
                     if (takeItem != null) {
                         System.out.println("You picked up " + takeItem );
-                    } else System.out.println("There is no " + commands[1] + " in this room");
+                    }
                 }
                 case "drop" -> {
                     Item dropItem = adventure.getdropPlayerItem(commands[1]);
                     if (dropItem != null) {
                         System.out.println("Dropped '" + dropItem + "'");
-                    } else {
-                        System.out.println("There is no " + commands[1] + " in your inventory");
                     }
                 }
                 case "eat" -> {
