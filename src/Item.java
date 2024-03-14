@@ -8,23 +8,10 @@ public class Item {
         this.itemDescription = itemDescription;
     }
 
-    //****SETTER****
-    public void setItemDescription(String itemDescription) {
-        this.itemDescription = itemDescription;
-    }
-
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
-    }
-
-    //****GETTER****
     public String getItemName() {
         return itemName;
     }
 
-    public String getItemDescription() {
-        return itemDescription;
-    }
     public String toString() {
         return itemName + ", " + itemDescription;
     }
