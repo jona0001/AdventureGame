@@ -5,7 +5,6 @@ public class UserInterface {
     private Scanner scanner;
     private Adventure adventure;
     private boolean isRunning;
-    private Item item;
     boolean inGameSession = false;
     Music music = new Music();
 
@@ -87,7 +86,7 @@ public class UserInterface {
                 case "take" -> {
                     Item takeItem = adventure.getaddPlayerItem(commands[1]);
                     if (takeItem != null) {
-                        System.out.println("You picked up " + takeItem + "'");
+                        System.out.println("You picked up " + takeItem );
                     } else System.out.println("There is no " + commands[1] + " in this room");
                 }
                 case "drop" -> {
@@ -136,8 +135,6 @@ public class UserInterface {
         System.out.println("resume          - to resume music");
         System.out.println("EXIT            - Exit the program.");
     }
-
-
-
 }
-
+// might add riddles in a room
+//
