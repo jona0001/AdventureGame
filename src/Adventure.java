@@ -53,5 +53,4 @@ public class Adventure {
         return player.eat(itemName);
     }
 
-
 }
