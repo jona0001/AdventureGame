@@ -2,6 +2,7 @@ public class Adventure {
     //Controller
     private Player player;
     private Map map = new Map();
+    private Music music;
 
     public Adventure() {
         map.mapCreator();
@@ -52,4 +53,18 @@ public class Adventure {
     public String getEat (String itemName){
         return player.eat(itemName);
     }
+    public String getEquipWeapon (String itemName){
+        return player.equipWeapon(itemName);
+    }
+
+    public void getMyMusic(){
+        music.myMusic();
+    }
+    public void getPlayMusic(){
+        music.playMusic();
+    }
+    public void getStop(){
+        music.stopMusic();
+    }
+
 }

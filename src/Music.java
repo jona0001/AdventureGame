@@ -5,7 +5,7 @@ import java.io.IOException;
 public class Music {
     private Clip clip;
 
-    public Music() {
+    public void myMusic (){
         try {
             File audioFile = new File("resources/lofi.wav");
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
@@ -15,8 +15,6 @@ public class Music {
             e.printStackTrace();
         }
     }
-
-
 
     public void playMusic() {
         if (clip != null && !clip.isRunning()) {

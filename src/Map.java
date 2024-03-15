@@ -25,6 +25,7 @@ public class Map {
         //items
         room1.addItemInRoom(new Item("torch", "A long thick torch"));
         room1.addItemInRoom(apple);
+        room1.addItemInRoom(new MeleWeapons("pipe", "a long pipe you can use to hit with", 5));
 
         // room 2
         room2.setEast(room3);
@@ -37,8 +38,8 @@ public class Map {
         // room 3
         room3.setWest(room2);
         room3.setSouth(room6);
-        room3.addItemInRoom(new MeleWeapons("knife", "a dull knife with a rusty blade", 5));
-        room3.addItemInRoom(new RangedWeapons("pistol", "a old rusty pistol", 5, 5));
+        room3.addItemInRoom(new MeleWeapons("knife", "a dull knife with a rusty blade", 7));
+        room3.addItemInRoom(new RangedWeapons("pistol", "a old rusty pistol", 10, 5));
         room3.addItemInRoom(bread);
 
         // room 4

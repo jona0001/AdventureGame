@@ -9,4 +9,5 @@ public abstract class Weapon extends Item{
         return damage;
     }
 
+
 }

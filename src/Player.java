@@ -2,11 +2,11 @@ import java.util.ArrayList;
 
 public class Player {
 
-
     //***ATTRIBUTES**
     private Room currentRoom;
     private ArrayList<Item> inventory;
     private int health;
+    private Weapon currentWeapon;
 
 
     //***CONSTRUCTOR***
@@ -132,6 +132,18 @@ public class Player {
             return "Doesn't exist";
         }
     }
+    public String equipWeapon (String itemName){
+        Item item = searchItemInventory(itemName);
+        if (item == null){
+            return "you dont have that item";
+        } else if (item instanceof Weapon){
+            currentWeapon = (Weapon) item;
+            return "you have equipped " + currentWeapon;
+        }else {
+            return "you cant equip " + item.getItemName();
+        }
+    }
+
 
 }
 

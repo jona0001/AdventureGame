@@ -7,8 +7,6 @@ public class UserInterface {
     private boolean isRunning;
     private Item item;
     boolean inGameSession = false;
-    Music music = new Music();
-
 
 
     //constructor Set the initial value for the class attributes.
@@ -17,7 +15,7 @@ public class UserInterface {
         scanner.useDelimiter("\n");
         adventure = new Adventure();
         isRunning = true;
-        music.playMusic();
+        adventure.getMyMusic();
     }
 
     public void start() {
@@ -54,10 +52,10 @@ public class UserInterface {
                     System.exit(0);
                 }
                 case "mute" -> {
-                    music.stopMusic();
+                    adventure.getStop();
                 }
                 case "resume" -> {
-                    music.playMusic();
+                    adventure.getPlayMusic();
                 }
                 case "health" -> {
                     System.out.println("You have " + adventure.getPlayer().getHealth() + " health points");
@@ -102,9 +100,15 @@ public class UserInterface {
                     }
                 }
                 case "use" -> {
-                    String eat = adventure.getEat(commands[1]);
-                    System.out.println(eat);
+                    String use = adventure.getEat(commands[1]);
+                    System.out.println(use);
                 }
+                case "equip" -> {
+                    String equip = adventure.getEquipWeapon(commands[1]);
+                    System.out.println(equip);
+                }
+
+
             }
 
         }
