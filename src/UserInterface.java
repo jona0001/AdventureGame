@@ -101,10 +101,9 @@ public class UserInterface {
                         System.out.println("There is no " + commands[1] + " in your inventory");
                     }
                 }
-                case "eat" -> {
+                case "use" -> {
                     String eat = adventure.getEat(commands[1]);
                     System.out.println(eat);
-
                 }
             }
 
@@ -134,6 +133,7 @@ public class UserInterface {
         System.out.println("LOOK, L         - Take another look around the room.");
         System.out.println("TAKE <item>     - Pick up an object from a room (e.g., 'take club').");
         System.out.println("DROP <item>     - Drop an item inside a room (e.g., 'drop club').");
+        System.out.println("use <item>      - to use an item");
         System.out.println("INVENTORY, I    - View items in your inventory.");
         System.out.println("HEALTH          - See your health");
         System.out.println("MUTE,           - Mute music");

@@ -1,6 +1,6 @@
 public class Item {
-    private String itemDescription;
-    private String itemName;
+    protected String itemDescription;
+    protected String itemName;
 
     //****CONSTRUCTOR*****
     public Item(String itemName, String itemDescription) {

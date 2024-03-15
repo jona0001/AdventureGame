@@ -61,7 +61,6 @@ public class Player {
         return currentRoom;
     }
 
-
     //current room name and description
     public void currentRoomPrint() {
         System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
