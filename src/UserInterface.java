@@ -9,13 +9,14 @@ public class UserInterface {
     boolean inGameSession = false;
 
 
+
     //constructor Set the initial value for the class attributes.
     public UserInterface() {
         scanner = new Scanner(System.in);
         scanner.useDelimiter("\n");
         adventure = new Adventure();
         isRunning = true;
-        adventure.getMyMusic();
+
     }
 
     public void start() {
@@ -54,7 +55,7 @@ public class UserInterface {
                 case "mute" -> {
                     adventure.getStop();
                 }
-                case "resume" -> {
+                case "start" -> {
                     adventure.getPlayMusic();
                 }
                 case "health" -> {
@@ -140,8 +141,8 @@ public class UserInterface {
         System.out.println("use <item>      - to use an item");
         System.out.println("INVENTORY, I    - View items in your inventory.");
         System.out.println("HEALTH          - See your health");
+        System.out.println("Start           - start music");
         System.out.println("MUTE,           - Mute music");
-        System.out.println("resume          - Resume music");
         System.out.println("EXIT            - Exit the program.");
     }
 

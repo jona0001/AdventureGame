@@ -2,7 +2,7 @@ public class Adventure {
     //Controller
     private Player player;
     private Map map = new Map();
-    private Music music;
+    private Music music = new Music();
 
     public Adventure() {
         map.mapCreator();
@@ -57,9 +57,7 @@ public class Adventure {
         return player.equipWeapon(itemName);
     }
 
-    public void getMyMusic(){
-        music.myMusic();
-    }
+
     public void getPlayMusic(){
         music.playMusic();
     }

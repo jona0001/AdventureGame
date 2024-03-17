@@ -4,8 +4,7 @@ import java.io.IOException;
 
 public class Music {
     private Clip clip;
-
-    public void myMusic (){
+    public Music() {
         try {
             File audioFile = new File("resources/lofi.wav");
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
