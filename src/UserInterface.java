@@ -21,6 +21,9 @@ public class UserInterface {
 
     public void start() {
         while (true) {
+            if (adventure.getPlayer().getPlayerisDead()){
+                gameOver();
+            }
             if (!inGameSession) {
                 introduction();
                 menuText();
@@ -61,6 +64,10 @@ public class UserInterface {
                 case "health" -> {
                     System.out.println("You have " + adventure.getPlayer().getHealth() + " health points");
                 }
+                case "attack" -> {
+                    adventure.attack();
+                }
+
             }
         }
         if (commands.length == 2) {
@@ -144,6 +151,17 @@ public class UserInterface {
         System.out.println("Start           - start music");
         System.out.println("MUTE,           - Mute music");
         System.out.println("EXIT            - Exit the program.");
+    }
+    public void gameOver() {
+        System.out.println("Game over, do you want to play again? (yes/no)");
+        String playAgain = scanner.nextLine().trim().toLowerCase();
+        if (playAgain.equals("yes")) {
+            System.out.println("something");
+        } else {
+            inGameSession = false;
+        }
+
+
     }
 
 }

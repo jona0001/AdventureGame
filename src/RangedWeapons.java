@@ -13,7 +13,11 @@ public class RangedWeapons extends Weapon {
         this.ammo = ammo;
     }
 
-
-
+    @Override
+    public void attack() {
+        if (ammo > 0) {
+            setAmmo(ammo - 1);
+        }
+    }
 
 }

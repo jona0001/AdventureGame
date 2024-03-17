@@ -9,5 +9,5 @@ public abstract class Weapon extends Item{
         return damage;
     }
 
-
+    public abstract void attack();
 }

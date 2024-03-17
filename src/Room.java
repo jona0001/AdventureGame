@@ -8,6 +8,7 @@ public class Room {
     private Room east;
     private Room west;
     private ArrayList<Item> roomItemList = new ArrayList<>();
+    private ArrayList<Enemy> enemyList = new ArrayList<>();
 
     // Adds name and descriptions to new rooms
     public Room(String name, String description) {
@@ -57,14 +58,6 @@ public class Room {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public void addItemInRoom(Item item) {
         roomItemList.add(item);
     }
@@ -92,6 +85,27 @@ public class Room {
     }
     public String toString() {
         return "Room{name='" + name + "', description='" + description + "'}";
+    }
+    public void addEnemy (Enemy enemy) {
+        enemyList.add(enemy);
+    }
+
+    public ArrayList<Enemy> getEnemyList() {
+        return enemyList;
+    }
+
+    public ArrayList<Item> getRoomItemList() {
+        return roomItemList;
+    }
+    public void printItemlist() {
+        for (Item item : roomItemList) {
+            System.out.println(item);
+        }
+    }
+    public void printEnemyList() {
+        for (Enemy enemy : enemyList) {
+            System.out.println(enemy);
+        }
     }
 
 }

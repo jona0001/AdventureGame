@@ -7,6 +7,7 @@ public class Player {
     private ArrayList<Item> inventory;
     private int health;
     private Weapon currentWeapon;
+    private boolean playerisDead = false;
 
 
     //***CONSTRUCTOR***
@@ -114,6 +115,17 @@ public class Player {
         inventory.remove(item);
     }
 
+    public boolean getPlayerisDead (){
+        return playerisDead;
+    }
+
+    public void isPlayerDead() {
+
+        if (health < 1) {
+            playerisDead = true;
+        }
+    }
+
     public String eat(String itemName) {
         Item item = searchItemInventory(itemName);
         if (item == null) {
@@ -142,6 +154,9 @@ public class Player {
         }else {
             return "you cant equip " + item.getItemName();
         }
+    }
+    public Weapon getCurrentWeapon() {
+        return currentWeapon;
     }
 
 

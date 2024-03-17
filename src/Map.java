@@ -20,6 +20,7 @@ public class Map {
         Item crackers = new Consumables("crackers", "a pack of dry crackers, better than nothing", 5);
         Item meat = new Consumables("meat", "spoiled meat infested with maggots", -10);
         Item rations = new Consumables("rations", "field rations, next to a dead corpse in a uniform", 15);
+        Item rustySword = new MeleWeapons("rustySword", "an old rusty sword", 15);
 
         // room 1
         room1.setEast(room2);
@@ -36,6 +37,8 @@ public class Map {
         room2.addItemInRoom(bandages);
         room2.addItemInRoom(new Item("coin", "a weird looking silver coin, looks roman"));
         room2.addItemInRoom(new Consumables("poison", "its poison", -10));
+        room2.addEnemy(new Enemy("skeleton", "a half broken skeleton, look weak enough", 10,
+                new MeleWeapons("rustySword", "an old rusty sword", 15), room2,2));
 
         // room 3
         room3.setWest(room2);

@@ -50,19 +50,70 @@ public class Adventure {
         return player.getCurrentRoom();
     }
 
-    public String getEat (String itemName){
+    public String getEat(String itemName) {
         return player.eat(itemName);
     }
-    public String getEquipWeapon (String itemName){
+
+    public String getEquipWeapon(String itemName) {
         return player.equipWeapon(itemName);
     }
 
 
-    public void getPlayMusic(){
+    public void getPlayMusic() {
         music.playMusic();
     }
-    public void getStop(){
+
+    public void getStop() {
         music.stopMusic();
     }
 
+
+    public void attack() {
+        if (player.getCurrentRoom().getEnemyList().isEmpty()) {
+            System.out.println("no enemy to attack");
+        } else {
+            Enemy enemy = player.getCurrentRoom().getEnemyList().get(0);
+            if (player.getCurrentWeapon() instanceof RangedWeapons) {
+                int currentAmmo = ((RangedWeapons) player.getCurrentWeapon()).getAmmo();
+                if (currentAmmo < 1) {
+                    System.out.println("no ammo");
+                } else {
+                    ((RangedWeapons) player.getCurrentWeapon()).setAmmo(currentAmmo - 1);
+                    enemy.setHp(enemy.getHp() - player.getCurrentWeapon().getDamage());
+                    enemy.isEnemyDead();
+
+                    if (enemy.getHp() > 0) {
+                        System.out.println("weapon fired");
+                        enemy.setHp(enemy.getHp() - ((RangedWeapons) player.getCurrentWeapon()).getDamage());
+                        System.out.println("You attack with your weapon and deal '"
+                                + ((RangedWeapons) player.getCurrentWeapon()).getDamage()+ "'");
+
+                        System.out.println("The enemy attacks with their weapon '" + enemy.getWeapon() + "'");
+                        System.out.println("The enemy dealt '" + enemy.getWeapon().getDamage() + "' damage");
+                        player.setHealth(player.getHealth() - enemy.getWeapon().getDamage());
+                        player.isPlayerDead();
+                    }
+                }
+            }
+            if (player.getCurrentWeapon() instanceof MeleWeapons) {
+                enemy.setHp(enemy.getHp() - player.getCurrentWeapon().getDamage());
+                enemy.isEnemyDead();
+
+                if (enemy.getHp() > 0) {
+
+                    System.out.println("attacked");
+                    enemy.setHp(enemy.getHp() - ((MeleWeapons) player.getCurrentWeapon()).getDamage());
+                    System.out.println("You attack with your weapon and deal "
+                            + " '" + ((MeleWeapons) player.getCurrentWeapon()).getDamage()+"'" + "damage");
+                }
+                System.out.println("The enemy attacks with their weapon '" + enemy.getWeapon() + "'");
+                System.out.println("The enemy dealt '" + enemy.getWeapon().getDamage() + "' damage");
+                player.setHealth(player.getHealth() - enemy.getWeapon().getDamage());
+                player.isPlayerDead();
+
+            } else {
+                System.out.println("not a weapon");
+            }
+        }
+    }
 }
