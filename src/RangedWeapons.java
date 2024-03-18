@@ -1,23 +1,27 @@
 public class RangedWeapons extends Weapon {
     private int ammo;
 
-    public RangedWeapons (String itemName, String itemDescription, int damage, int ammo) {
-        super(itemName, itemDescription, damage);
-        this.ammo = ammo;
-    }
-
-    public int getAmmo() {
-        return ammo;
-    }
-    public void setAmmo(int ammo) {
-        this.ammo = ammo;
+    public RangedWeapons(String itemName, String itemDescription, int damage, int ammo) {
+        super(itemName, itemDescription, damage, ammo);
     }
 
     @Override
-    public void attack() {
-        if (ammo > 0) {
-            setAmmo(ammo - 1);
+    public String uses() {
+        if (super.getAmmo() >= 0) {
+            return "remaning uses: " + super.getAmmo();
+        } else {
+            return "out of ammo";
         }
     }
+
+    @Override
+    public void useWeapon() {
+        if (getAmmo() > 0) {
+            setAmmo(getAmmo() - 1);
+        } else {
+            System.out.println("No ammo remaining for " + getItemName() + ".");
+        }
+    }
+
 
 }
