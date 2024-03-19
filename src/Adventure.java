@@ -38,13 +38,11 @@ public class Adventure {
         return player.pickedItem(itemName);
     }
 
+
     public Item getdropPlayerItem(String itemName) {
         return player.dropItem(itemName);
     }
 
-    public void printItemList() {
-        getCurrentRoom().printRoomItemList();
-    }
 
     public Room getCurrentRoom() {
         return player.getCurrentRoom();
@@ -58,7 +56,6 @@ public class Adventure {
         return player.equipWeapon(itemName);
     }
 
-
     public void getPlayMusic() {
         music.playMusic();
     }
@@ -69,6 +66,13 @@ public class Adventure {
 
     public String attack(){
        return player.attack();
+    }
+
+    public void search(){
+        getCurrentRoomPrint();
+        getCurrentRoom().getRoomItemList();
+        getCurrentRoom().printItemlist();
+        getCurrentRoom().printEnemyList();
     }
 
 

@@ -29,4 +29,5 @@ public abstract class Weapon extends Item{
         this.ammo = ammo;
     }
 
+
 }

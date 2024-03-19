@@ -30,7 +30,7 @@ public class Map {
         room1.addItemInRoom(apple);
         room1.addItemInRoom(new MeleWeapons("pipe", "a long rusty pipe you can use to hit with", 5));
         room1.addItemInRoom(new RangedWeapons("stone", "test stone", 5, 2));
-        room1.addEnemy(new Enemy("test", "testunit", 10, new MeleWeapons("s", "s", 10), room2, 2));
+        room1.addEnemy(new Enemy("test", "testunit", 10, new MeleWeapons("sword", "little sword", 10), room2, 2));
 
         // room 2
         room2.setEast(room3);

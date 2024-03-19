@@ -46,9 +46,10 @@ public class Enemy {
         this.hp=newHp;
     }
 
+
     @Override
     public String toString() {
-        return description + " ("+hp+"hp)"+ "\nIn their hands they are holding: '" + weapon+"'";
+        return description + " ("+hp+"hp)"+ ", in their hand they are holding a: '" + weapon+" ' ";
 
     }
     public void isEnemyDead() {

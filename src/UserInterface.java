@@ -26,7 +26,7 @@ public class UserInterface {
             }
             if (!inGameSession) {
                 introduction();
-                menuText();
+                adventure.search();
                 inGameSession = true;
             } else {
                 userInput();
@@ -45,9 +45,9 @@ public class UserInterface {
                 case "help", "h" -> {
                     menuText();
                 }
-                case "look", "l" -> {
-                    adventure.getCurrentRoomPrint();
-                    adventure.printItemList();
+                case "look", "l", "search" -> {
+                    adventure.search();
+
                 }
                 case "inventory", "i" -> {
                     System.out.println(adventure.getPlayer().getInventory());
@@ -65,7 +65,7 @@ public class UserInterface {
                     System.out.println("You have " + adventure.getPlayer().getHealth() + " health points");
                 }
                 case "attack" -> {
-                   attack();
+                    attack();
                 }
 
             }
@@ -116,7 +116,6 @@ public class UserInterface {
                     System.out.println(equip);
                 }
 
-
             }
 
         }
@@ -136,8 +135,12 @@ public class UserInterface {
 
         System.out.println("This is a horror survival game");
         System.out.println("Try and survive while discover the secrets of the tomb");
-        System.out.println("▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n");
         System.out.println("you find yourself at the entrance of a Dark tomb, you dont remember anything");
+        System.out.println("you see in the room");
+        System.out.println("type <help> to see commands");
+        System.out.println("▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n");
+
+
     }
     public void menuText () {
         System.out.println("Commands:");
@@ -145,7 +148,9 @@ public class UserInterface {
         System.out.println("LOOK, L         - Take another look around the room.");
         System.out.println("TAKE <item>     - Pick up an object from a room (e.g., 'take club').");
         System.out.println("DROP <item>     - Drop an item inside a room (e.g., 'drop club').");
-        System.out.println("use <item>      - to use an item");
+        System.out.println("use <item>      - to use an healing item");
+        System.out.println("equip <weapon>  - to equip a weapon");
+        System.out.println("attack <enemy>  - to attack an enemy");
         System.out.println("INVENTORY, I    - View items in your inventory.");
         System.out.println("HEALTH          - See your health");
         System.out.println("Start           - start music");
