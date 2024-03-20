@@ -56,15 +56,10 @@ public class Enemy {
         if (getRoomNumber() == 5) {
             if (hp <= 0) {
                 System.out.println(name + ", " + description + " has died.");
-
             } else {
                 System.out.println(description + " has '" + hp + "' HP remaining");
             }
         }
     }
-
-
-
-
 
 }

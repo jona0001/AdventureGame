@@ -115,7 +115,8 @@ public class Player {
         inventory.remove(item);
     }
 
-    public boolean getPlayerisDead (){
+
+    public boolean getPlayerisDead() {
         return playerisDead;
     }
 
@@ -131,111 +132,75 @@ public class Player {
         if (item == null) {
             return "You don't have that item";
         } else if (item instanceof Consumables food) {
-            if (health + food.getHealingPoint()>=100){
+            if (health + food.getHealingPoint() >= 100) {
                 setHealth(100);
                 removeItem(food);
-                return "You ate the "+itemName;
-            } else{
-            removeItem(food);
-            health += food.getHealingPoint();
-            return "You ate the " + itemName;}
+                return "You ate the " + itemName;
+            } else {
+                removeItem(food);
+                health += food.getHealingPoint();
+                return "You ate the " + itemName;
+            }
         } else {
 
             return "Doesn't exist";
         }
     }
-    public String equipWeapon (String itemName){
+
+    public String equipWeapon(String itemName) {
         Item item = searchItemInventory(itemName);
-        if (item == null){
+        if (item == null) {
             return "you dont have that item";
-        } else if (item instanceof Weapon){
+        } else if (item instanceof Weapon) {
             currentWeapon = (Weapon) item;
             return "you have equipped " + currentWeapon;
-        }else {
+        } else {
             return "you cant equip " + item.getItemName();
         }
     }
+
     public Weapon getCurrentWeapon() {
         return currentWeapon;
     }
 
-    public String attack() {
+    public void attack() {
         if (currentWeapon == null) {
+            //checks if weapons is equipped
             System.out.println("You are not equipped with a weapon, so you cannot attack.");
-            return "NoWeaponEquipped";
         } else {
-            try {
+            //checks if there is no enemy if so attacks the air
+            if (getCurrentRoom().getEnemyList().isEmpty()) {
                 currentWeapon.useWeapon();
-                return currentWeapon.uses();
-            } catch (Exception e) {
-                System.out.println("An error occurred while using the weapon.");
-                e.printStackTrace();
-                return "Error";
+                System.out.println(currentWeapon.uses() + "there is no enemy to attack, you are hitting the air");
+            } else {
+                Enemy enemy = getCurrentRoom().getEnemyList().get(0);
+                if (enemy.getHp() > 0) {
+                    // Enemy is present and has health, you attack if it survives it attack back if not it attacks back
+                    currentWeapon.useWeapon();
+                    enemy.setHp(enemy.getHp() - getCurrentWeapon().getDamage());
+                    System.out.println("you attack and deal " + getCurrentWeapon().getDamage() + " damage");
+                    if (enemy.getHp() > 0) {
+                        System.out.println("The enemy attacks with their weapon '" + enemy.getWeapon() + "'");
+                        System.out.println("The enemy dealt '" + enemy.getWeapon().getDamage() + "' damage");
+                        setHealth(getHealth() - enemy.getWeapon().getDamage());
+                    } else if (enemy.getHp() <= 0) {
+                        System.out.println("You hit the enemy for " + getCurrentWeapon().getDamage() + " damage. The enemy is defeated.");
+
+                    }
+                } else {
+                    System.out.println(" enemy is dead");
+                }
             }
+
         }
     }
 
 
 }
 
-/*
-    public void attack() {
-        // checks if there is an enemy
-        if (player.getCurrentRoom().getEnemyList().isEmpty()) {
-            System.out.println("no enemy to attack");
 
-        } else {
-            // checks which kind of weapon is used
-            Enemy enemy = player.getCurrentRoom().getEnemyList().get(0);
-            if (player.getCurrentWeapon() instanceof RangedWeapons) {
-                int currentAmmo = ((RangedWeapons) player.getCurrentWeapon()).getAmmo();
-                if (currentAmmo < 1) {
-                    //checks if there is ammo
-                    System.out.println("no ammo");
-                } else {
-                    // if there is ammo the ranged weapon uses one ammo and shoots for player current weapon damage
-                    ((RangedWeapons) player.getCurrentWeapon()).setAmmo(currentAmmo - 1);
-                    enemy.setHp(enemy.getHp() - player.getCurrentWeapon().getDamage());
-                    enemy.isEnemyDead();
 
-                    if (enemy.getHp() > 0) {
-                        //if the enemy health is more than 0,
-                        // the enemy shoots back at the player and deal weapon damage equal to the weapon equipped
 
-                        System.out.println("weapon fired");
-                        enemy.setHp(enemy.getHp() - ((RangedWeapons) player.getCurrentWeapon()).getDamage());
-                        System.out.println("You attack with your weapon and deal '"
-                                + ((RangedWeapons) player.getCurrentWeapon()).getDamage()+ "'");
 
-                        System.out.println("The enemy attacks with their weapon '" + enemy.getWeapon() + "'");
-                        System.out.println("The enemy dealt '" + enemy.getWeapon().getDamage() + "' damage");
-                        player.setHealth(player.getHealth() - enemy.getWeapon().getDamage());
-                        player.isPlayerDead();
-                    }
-                }
-            }
-            if (player.getCurrentWeapon() instanceof MeleWeapons) {
-                enemy.setHp(enemy.getHp() - player.getCurrentWeapon().getDamage());
-                enemy.isEnemyDead();
 
-                if (enemy.getHp() > 0) {
-
-                    System.out.println("attacked");
-                    enemy.setHp(enemy.getHp() - ((MeleWeapons) player.getCurrentWeapon()).getDamage());
-                    System.out.println("You attack with your weapon and deal "
-                            + " '" + ((MeleWeapons) player.getCurrentWeapon()).getDamage()+"'" + "damage");
-                }
-                System.out.println("The enemy attacks with their weapon '" + enemy.getWeapon() + "'");
-                System.out.println("The enemy dealt '" + enemy.getWeapon().getDamage() + "' damage");
-                player.setHealth(player.getHealth() - enemy.getWeapon().getDamage());
-                player.isPlayerDead();
-
-            } else {
-                System.out.println("no weapon/enemy");
-            }
-
-        }
-    }
-
- */
 
