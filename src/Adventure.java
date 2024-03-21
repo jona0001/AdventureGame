@@ -74,6 +74,14 @@ public class Adventure {
         getCurrentRoom().printItemlist();
         getCurrentRoom().printEnemyList();
     }
+    public boolean playerisDead() {
+        return player.playerisDead;
+    }
+    public boolean checkFinalEnemyDefeat() {
+        if (map.getFinalEnemy().getHp() < 0) {
+            return true;
+        } else {
+            return false;
+        }
 
-
-}
+}}

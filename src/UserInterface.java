@@ -21,14 +21,20 @@ public class UserInterface {
 
     public void start() {
         while (true) {
-            if (adventure.getPlayer().getPlayerisDead()){
-                gameOver();
-            }
+
             if (!inGameSession) {
                 introduction();
                 adventure.search();
                 inGameSession = true;
-            } else {
+            }
+            if (adventure.playerisDead()){
+                gameOver();
+            }
+            if(adventure.checkFinalEnemyDefeat()){
+                System.out.println("Congratulations you beat the game, you can now do whatever you want.");
+
+            }
+            else {
                 userInput();
             }
         }
@@ -167,6 +173,7 @@ public class UserInterface {
         }
 
     }
+
 
 
 }

@@ -1,5 +1,7 @@
 public class Map {
     private Room starterRoom;
+    private Enemy finalEnemy;
+
 
     //toString maybe, if there is time
     // 9 instances of rooms, with established connections, designated room 1 to the starter room
@@ -30,7 +32,7 @@ public class Map {
         room1.addItemInRoom(apple);
         room1.addItemInRoom(new MeleWeapons("pipe", "a long rusty pipe you can use to hit with", 5));
         room1.addItemInRoom(new RangedWeapons("stone", "test stone", 5, 2));
-        room1.addEnemy(new Enemy("test", "testunit", 10, new MeleWeapons("sword", "little sword", 10), room2, 2));
+        room1.addEnemy(new Enemy("test", "testunit", 10, new MeleWeapons("sword", "little sword", 101), room2, 2));
 
         // room 2
         room2.setEast(room3);
@@ -60,9 +62,11 @@ public class Map {
 
         // room 5
         room5.setSouth(room8);
-        //items
+        //items and last boss
         room5.addItemInRoom(apple);
         room5.addItemInRoom(new Item("GoldenApple", "a gold apple"));
+        room5.addEnemy(new Enemy("Big Butcher", "The Horror", 75, new MeleWeapons("Cleaver", "BIG MeatCleaver", 20), room5,5));
+        setFinalEnemy(room5.getEnemyList().get(0));
 
         // room 6
         room6.setNorth(room3);
@@ -106,6 +110,12 @@ public class Map {
         //the starter room
         starterRoom = room1;
 
+    }
+    public Enemy getFinalEnemy() {
+        return finalEnemy;
+    }
+    public void setFinalEnemy(Enemy enemy) {
+        this.finalEnemy = enemy;
     }
     public Room getStarterRoom() {
         return starterRoom;
