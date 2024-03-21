@@ -24,7 +24,15 @@ public class UserInterface {
                 introduction();
                 adventure.search();
                 inGameSession = true;
-            } else {
+            }
+            if (adventure.playerisDead()){
+                gameOver();
+            }
+            if(adventure.checkFinalEnemyDefeat()){
+                System.out.println("Congratulations you beat the game, you can now do whatever you want.");
+
+            }
+            else {
                 userInput();
             }
         }
