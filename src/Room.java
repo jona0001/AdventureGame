@@ -79,6 +79,7 @@ public class Room {
         return itemToRemove;
     }
 
+
     public String toString() {
         return "Room{name='" + name + "', description='" + description + "'}";
     }

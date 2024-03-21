@@ -4,8 +4,6 @@ public class UserInterface {
     //our scanner and other attributes
     private Scanner scanner;
     private Adventure adventure;
-    private boolean isRunning;
-    private Item item;
     boolean inGameSession = false;
 
 
@@ -15,15 +13,13 @@ public class UserInterface {
         scanner = new Scanner(System.in);
         scanner.useDelimiter("\n");
         adventure = new Adventure();
-        isRunning = true;
+
 
     }
 
     public void start() {
         while (true) {
-            if (adventure.getPlayer().getPlayerisDead()){
-                gameOver();
-            }
+
             if (!inGameSession) {
                 introduction();
                 adventure.search();
@@ -47,7 +43,6 @@ public class UserInterface {
                 }
                 case "look", "l", "search" -> {
                     adventure.search();
-
                 }
                 case "inventory", "i" -> {
                     System.out.println(adventure.getPlayer().getInventory());
@@ -65,7 +60,7 @@ public class UserInterface {
                     System.out.println("You have " + adventure.getPlayer().getHealth() + " health points");
                 }
                 case "attack" -> {
-                    adventure.attack();
+                    adventure.getAttack();
                 }
 
             }
@@ -115,7 +110,6 @@ public class UserInterface {
                     String equip = adventure.getEquipWeapon(commands[1]);
                     System.out.println(equip);
                 }
-
             }
 
         }
@@ -167,6 +161,7 @@ public class UserInterface {
         }
 
     }
+
 
 
 }

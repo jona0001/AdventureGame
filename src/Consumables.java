@@ -1,5 +1,5 @@
 public class Consumables extends Item {
-    int healingPoint;
+    private int healingPoint;
 
     public Consumables(String itemName, String itemDescription, int healingPoint){
         super (itemName, itemDescription);

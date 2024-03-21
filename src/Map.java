@@ -50,6 +50,7 @@ public class Map {
         room3.addItemInRoom(new RangedWeapons("LugerPistol", "a old rusty pistol", 10, 5));
         room3.addItemInRoom(rations);
 
+
         // room 4
         room4.setNorth(room1);
         room4.setSouth(room7);
@@ -107,6 +108,8 @@ public class Map {
         starterRoom = room1;
 
     }
+
     public Room getStarterRoom() {
         return starterRoom;
-    }}
+    }
+}

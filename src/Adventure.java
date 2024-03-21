@@ -64,8 +64,8 @@ public class Adventure {
         music.stopMusic();
     }
 
-    public void attack(){
-        player.attack();
+    public void getAttack() {
+         player.attack();
     }
 
     public void search(){

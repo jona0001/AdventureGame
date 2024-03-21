@@ -15,7 +15,6 @@ public class Enemy {
         this.room = room;
         this.roomNumber = roomNumber;
 
-
     }
 
     public int getRoomNumber() {
@@ -52,14 +51,6 @@ public class Enemy {
         return description + " ("+hp+"hp)"+ ", in their hand they are holding a: '" + weapon+" ' ";
 
     }
-    public void isEnemyDead() {
-        if (getRoomNumber() == 5) {
-            if (hp <= 0) {
-                System.out.println(name + ", " + description + " has died.");
-            } else {
-                System.out.println(description + " has '" + hp + "' HP remaining");
-            }
-        }
-    }
+
 
 }

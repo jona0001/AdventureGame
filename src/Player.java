@@ -7,7 +7,7 @@ public class Player {
     private ArrayList<Item> inventory;
     private int health;
     private Weapon currentWeapon;
-    private boolean playerisDead = false;
+    private boolean playerIsDead = false;
 
 
     //***CONSTRUCTOR***
@@ -115,15 +115,13 @@ public class Player {
         inventory.remove(item);
     }
 
-
-    public boolean getPlayerisDead() {
-        return playerisDead;
+    public boolean getPlayerIsDead() {
+        return playerIsDead;
     }
 
     public void isPlayerDead() {
-
         if (health < 1) {
-            playerisDead = true;
+            playerIsDead = true;
         }
     }
 
@@ -162,7 +160,6 @@ public class Player {
     public Weapon getCurrentWeapon() {
         return currentWeapon;
     }
-
     public void attack() {
         if (currentWeapon == null) {
             //checks if weapons is equipped
@@ -185,22 +182,19 @@ public class Player {
                         setHealth(getHealth() - enemy.getWeapon().getDamage());
                     } else if (enemy.getHp() <= 0) {
                         System.out.println("You hit the enemy for " + getCurrentWeapon().getDamage() + " damage. The enemy is defeated.");
+                        currentRoom.addItemInRoom(enemy.getWeapon());
+                        getCurrentRoom().getEnemyList().remove(enemy);
 
                     }
                 } else {
                     System.out.println(" enemy is dead");
                 }
             }
-
         }
     }
 
 
 }
-
-
-
-
 
 
 
