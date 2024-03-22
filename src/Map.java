@@ -30,15 +30,17 @@ public class Map {
         //items
         room1.addItemInRoom(new Item("torch", "A long thick torch"));
         room1.addItemInRoom(apple);
+        room1.addItemInRoom(meat);
         room1.addItemInRoom(new MeleWeapons("pipe", "a long rusty pipe you can use to hit with", 5));
-        room1.addItemInRoom(new RangedWeapons("stone", "test stone", 5, 2));
-        room1.addEnemy(new Enemy("test", "testunit", 10, new MeleWeapons("sword", "little sword", 101), room2, 2));
+        room1.addItemInRoom(new RangedWeapons("bow", "a wood bow", 5, 2));
+        room1.addEnemy(new Enemy("zombie", "a foul half rotten zombie that can barely walk", 10, new MeleWeapons("sword", "little sword", 101), room2, 2));
 
         // room 2
         room2.setEast(room3);
         room2.setWest(room1);
         //items
         room2.addItemInRoom(bandages);
+        room2.addItemInRoom(meat);
         room2.addItemInRoom(new Item("coin", "a weird looking silver coin, looks roman"));
         room2.addItemInRoom(new Consumables("poison", "its poison", -10));
         room2.addEnemy(new Enemy("skeleton", "a half broken skeleton, look weak enough", 10,
@@ -48,9 +50,11 @@ public class Map {
         room3.setWest(room2);
         room3.setSouth(room6);
         //items
-        room3.addItemInRoom(new MeleWeapons("knife", "a dull knife with a rusty blade", 7));
         room3.addItemInRoom(new RangedWeapons("LugerPistol", "a old rusty pistol", 10, 5));
         room3.addItemInRoom(rations);
+        room3.addEnemy(new Enemy("skeleton", "a skeleton", 50, new MeleWeapons("knife", "a dull knife with a rusty blade", 7), room3,3));
+        room3.addEnemy(new Enemy("skeleton", "a skeleton", 50, new MeleWeapons("knife", "a dull knife with a rusty blade", 7), room3,3));
+        room3.addEnemy(new Enemy("skeleton", "a skeleton", 50, new MeleWeapons("knife", "a dull knife with a rusty blade", 7), room3,3));
 
         // room 4
         room4.setNorth(room1);
@@ -58,15 +62,21 @@ public class Map {
         //items
         room4.addItemInRoom(bandages);
         room4.addItemInRoom(meat);
-        room4.addItemInRoom(new MeleWeapons("mace", "an iron mace good for hitting thins", 10));
+        room3.addEnemy(new Enemy("golem", "a mud golem", 50, new MeleWeapons("mace", "an iron mace good for hitting thins", 10), room4,4));
 
         // room 5
         room5.setSouth(room8);
         //items and last boss
         room5.addItemInRoom(apple);
         room5.addItemInRoom(new Item("GoldenApple", "a gold apple"));
-        room5.addEnemy(new Enemy("Big Butcher", "The Horror", 75, new MeleWeapons("Cleaver", "BIG MeatCleaver", 20), room5,5));
+        room5.addEnemy(new Enemy("Butcher", "the butcher,The Horror", 75, new MeleWeapons("Cleaver", "BIG MeatCleaver", 20), room5,5));
         setFinalEnemy(room5.getEnemyList().get(0));
+        room8.addItemInRoom(meat);
+        room8.addItemInRoom(meat);
+        room8.addItemInRoom(meat);
+        room8.addItemInRoom(meat);
+        room8.addItemInRoom(meat);
+        room8.addItemInRoom(meat);
 
         // room 6
         room6.setNorth(room3);
@@ -90,13 +100,13 @@ public class Map {
         room8.setEast(room9);
         room8.setWest(room7);
         //items
-        room8.addItemInRoom(meat);
-        room8.addItemInRoom(meat);
-        room8.addItemInRoom(meat);
-        room8.addItemInRoom(meat);
-        room8.addItemInRoom(meat);
-        room8.addItemInRoom(meat);
-        room8.addItemInRoom(new MeleWeapons("MeatClever", "a giant Meat clever", 25));
+        room8.addItemInRoom(crackers);
+        room8.addItemInRoom(crackers);
+        room8.addItemInRoom(rations);
+        room8.addItemInRoom(rations);
+        room8.addItemInRoom(rations);
+        room8.addItemInRoom(bandages);
+        room5.addEnemy(new Enemy("Stitches", "the abomination,the brother of the butcher", 150, new MeleWeapons("MeatClever", "a giant Meat clever", 25), room8,8));
 
         // room 9
         room9.setNorth(room6);

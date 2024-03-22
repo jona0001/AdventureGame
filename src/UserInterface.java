@@ -13,8 +13,6 @@ public class UserInterface {
         scanner = new Scanner(System.in);
         scanner.useDelimiter("\n");
         adventure = new Adventure();
-
-
     }
 
     public void start() {

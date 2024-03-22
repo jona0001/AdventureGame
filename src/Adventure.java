@@ -65,18 +65,20 @@ public class Adventure {
     }
 
     public void getAttack() {
-         player.attack();
+        player.attack();
     }
 
-    public void search(){
+    public void search() {
         getCurrentRoomPrint();
         getCurrentRoom().getRoomItemList();
         getCurrentRoom().printItemlist();
         getCurrentRoom().printEnemyList();
     }
+
     public boolean playerisDead() {
         return player.playerisDead;
     }
+
     public boolean checkFinalEnemyDefeat() {
         if (map.getFinalEnemy().getHp() < 0) {
             return true;
@@ -84,4 +86,5 @@ public class Adventure {
             return false;
         }
 
-}}
+    }
+}
